@@ -1,0 +1,47 @@
+{
+  "posts": [
+    {
+      "content": "```\r\nlet arr1 = []\r\nfor (let i = 0; i < 3; i++) {\r\n    arr1[i] = function() {\r\n        console.log(i)\r\n    }\r\n}\r\narr1[2]()\r\n\r\nlet arr2 = []\r\nfor (var j = 0; j < 3; j++) {\r\n    arr2[j] = function() {\r\n        console.log(j)\r\n    }\r\n}\r\narr2[2]()\r\n```",
+      "data": {
+        "title": "ES6: 变量的声明var/let/const",
+        "date": "2020-03-15 21:00:09",
+        "tags": [
+          "ES6"
+        ],
+        "published": true,
+        "hideInList": false,
+        "feature": null,
+        "isTop": false
+      },
+      "isEmpty": false,
+      "excerpt": "",
+      "abstract": "",
+      "fileName": "QG5Q6-9X0"
+    }
+  ],
+  "tags": [
+    {
+      "index": -1,
+      "name": "ES6",
+      "slug": "es6",
+      "used": true
+    }
+  ],
+  "menus": [
+    {
+      "link": "/",
+      "name": "首页",
+      "openType": "Internal"
+    },
+    {
+      "link": "/archives",
+      "name": "归档",
+      "openType": "Internal"
+    },
+    {
+      "link": "/tags",
+      "name": "标签",
+      "openType": "Internal"
+    }
+  ]
+}

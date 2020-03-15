@@ -1,0 +1,30 @@
+{
+  "config": {
+    "branch": "master",
+    "domain": "http://404j.fun:402",
+    "email": "j1491361626@qq.com",
+    "password": "sJ19970101",
+    "platform": "sftp",
+    "port": 22,
+    "remotePath": "/home/Note",
+    "repository": "404J.github.io",
+    "server": "47.102.202.188",
+    "token": "fed2f4d9882ffdc281754521dd77939bfc1529a6",
+    "username": "root"
+  },
+  "comment": {
+    "commentPlatform": "gitalk",
+    "disqusSetting": {
+      "api": "",
+      "apikey": "",
+      "shortname": ""
+    },
+    "gitalkSetting": {
+      "clientId": "",
+      "clientSecret": "",
+      "owner": "",
+      "repository": ""
+    },
+    "showComment": false
+  }
+}

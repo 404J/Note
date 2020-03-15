@@ -1,0 +1,38 @@
+{
+  "config": {
+    "archivesPageSize": 50,
+    "archivesPath": "archives",
+    "dateFormat": "YYYY-MM-DD",
+    "feedCount": 10,
+    "feedFullText": true,
+    "footerInfo": "",
+    "postPageSize": 10,
+    "postPath": "",
+    "postUrlFormat": "SHORT_ID",
+    "showFeatureImage": true,
+    "siteDescription": "Mars今天记笔记了吗？",
+    "siteName": "Note",
+    "tagPath": "",
+    "tagUrlFormat": "SHORT_ID",
+    "themeName": "notes"
+  },
+  "customConfig": {
+    "contentBgColor": "#ffffff",
+    "contentMaxWidth": "800px",
+    "customCss": "",
+    "facebook": "",
+    "ga": "",
+    "github": "https://github.com/404J",
+    "linkColor": "rgba(0,0,0,.98)",
+    "linkHoverColor": "#006CFF",
+    "openPostToc": true,
+    "pageBgColor": "#ffffff",
+    "siteFont": "-apple-system,BlinkMacSystemFont,'Helvetica Neue','PingFang SC','Hiragino Sans GB','Droid Sans Fallback','Microsoft YaHei',sans-serif",
+    "textColor": "rgba(0, 0, 0, 0.86)",
+    "textSize": "16px",
+    "titleAlign": "center",
+    "twitter": "",
+    "weibo": "",
+    "zhihu": ""
+  }
+}

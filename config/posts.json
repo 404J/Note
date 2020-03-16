@@ -1,7 +1,7 @@
 {
   "posts": [
     {
-      "content": "```\r\nlet arr1 = []\r\nfor (let i = 0; i < 3; i++) {\r\n    arr1[i] = function() {\r\n        console.log(i)\r\n    }\r\n}\r\narr1[2]()\r\n\r\nlet arr2 = []\r\nfor (var j = 0; j < 3; j++) {\r\n    arr2[j] = function() {\r\n        console.log(j)\r\n    }\r\n}\r\narr2[2]()\r\n```",
+      "content": "# 1. var\r\n\r\n`ES5` 只有全局作用域和函数作用域，没有块级作用域。\r\n```\r\nlet arr1 = []\r\nfor (var i = 0; i < 2; i++) {\r\n    arr1[i] = function() {\r\n        console.log(i)\r\n    }\r\n}\r\narr1[1]() // 输出结果为2\r\n```\r\n上面code中，在`for`循环中，循环变量`i`使用`var`命令定义时，相当与全局有效。每次循环执行时，循环变量`i`的值都会被重新赋值所覆盖掉。函数体`{ console.log(i) }`不是立即执行，当循环结束时，`arr1[1]()`开始调用函数执行，此时`i`的值为2，所以控制台输出2。\r\n\r\n# 2. let\r\n\r\n`ES6`中新增了`let`命令进行变量的定义，所定义的变量只在`let`命令所在的代码块内有效，`let`命令实际上为 `JavaScript` 新增了块级作用域。\r\n```\r\nlet arr2 = []\r\nfor (let j = 0; j < 2; j++) {\r\n    arr2[j] = function() {\r\n        console.log(j)\r\n    }\r\n}\r\narr2[1]() // 输出结果为1\r\n```\r\n上面的code中，在`for`循环中，循环变量`j`使用`let`命令定义，这样变量`j`就不会被'泄露'到全局作用域中。每次循环都是`j`都是一个新的变量，所以每次循环都是一个新的块作用域。当语句`arr2[1]()`执行时，所调用的函数体`console.log(j)`中的变量`j`为当次循环的新的块作用域中的变量`j`,值为1，所以控制台输出1。\r\n\r\n#3. const\r\n",
       "data": {
         "title": "ES6: 变量的声明var/let/const",
         "date": "2020-03-15 21:00:09",

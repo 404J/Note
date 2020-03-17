@@ -1,6 +1,24 @@
 {
   "posts": [
     {
+      "content": "### **远端代码clone到本地**\r\n```\r\ngit clone -b [branch name] [remote repository address]\r\n```\r\n\r\n### **本地新建分支**\r\n```\r\ngit branch [branch name]\r\ngit checkout [branch name]\r\n```\r\n\r\n### **删除本地分支**\r\n```\r\ngit branch -D [branch name]\r\n```\r\n\r\n### **删除远端分支**\r\n```\r\ngit push origin --delete [branch name]\r\n```\r\n\r\n### **rebase流程**\r\n```\r\n先在自己的分支上执行，git fetch\r\n然后在自己的分支上执行 git rebase origin/develop\r\n有冲突解决冲突, 解决完冲突 git add -A\r\ngit rebase --continue\r\n推送到远端 git push origin [remote branch name] -f\r\n```\r\n\r\n### **合并多个远程commit提交**\r\n```\r\n\r\n```\r\n\r\n### **更改本地分支的名字**\r\n```\r\ngit checkout [old name]\r\ngit branch -m [new name]\r\n```\r\n\r\n### **将本地分支推送到远端并关联**\r\n```\r\ngit push --set-upstream origin [remote branch name]\r\n```\r\n\r\n### **将某次commit应用到某一分支**\r\n```\r\ngit cherry-pick [commit id]\r\n```\r\n\r\n### **将远端分支拉取到本地**\r\n```\r\ngit fetch && git checkout [remote branch name] \r\n```",
+      "data": {
+        "title": "Git: 基础命令",
+        "date": "2020-03-17 17:17:46",
+        "tags": [
+          "Git"
+        ],
+        "published": true,
+        "hideInList": false,
+        "feature": null,
+        "isTop": false
+      },
+      "isEmpty": false,
+      "excerpt": "",
+      "abstract": "",
+      "fileName": "idEonHImY"
+    },
+    {
       "content": "在了解 js 中的闭包概念之前，首先了解以下几个概念：\r\n\r\n- [立即执行函数](#立即执行函数)\r\n- [作用域以及变量](#作用域以及变量)\r\n\r\n### 立即执行函数🍑\r\n首先理解以下概念：函数声明，函数表达式，匿名函数。如下code：\r\n```\r\nfunction fun () {\r\n    console.log(\"函数声明\")\r\n}\r\nvar f = function fun () {\r\n    console.log(\"函数表达式\")\r\n}\r\nfunction () {\r\n    console.log(\"匿名函数\")\r\n}\r\n```\r\n立即执行函数即为函数表达式在创建后立即执行。实现方式如下：\r\n```\r\n(function (param) {\r\n    console.log(param) // 输出 1，使用()运算符\r\n} ) (1)\r\n\r\n(function (param) {\r\nconsole.log(param) // 输出 1，使用()运算符\r\n} (1) )\r\n\r\n[! || - || +]function (param) {\r\nconsole.log(param) // 输出 1 ，使用 ! 或 - 或 + 运算符\r\n} (1)\r\n```\r\n\r\n### 作用域以及变量🍔\r\nES5 只有全局作用域和函数作用域，全局作用域只的是script标签或者一个js文件。函数作用域指的是，函数被调用时，在内存中创建函数作用域，函数执行完毕后，该作用域被销毁，且函数每调用一次，就会创建一个新的函数作用域，相互独立。当在函数作用域操作一个变量时，它会先在自身作用域中寻找，如果有就直接使用，如果没有则向上一级作用域中寻找，直到找到全局作用域，如果全局作用域中依然没有找到，则会报错ReferenceError。\r\n```\r\nvar param = '全局变量param'\r\nfunction func1 () {\r\n  var param1 = 'func1的局部变量param1'\r\n  function func2 () {\r\n    var param2 = 'func1的局部变量param2'\r\n    console.log(param2) // func1的局部变量param2\r\n    console.log(param) // 全局变量param\r\n  }\r\n  func2()\r\n  console.log(param) // 全局变量param\r\n  console.log(param1) // func1的局部变量param1\r\n  console.log(param2) // ReferenceError: param2 is not defined\r\n}\r\n\r\nfunc1()\r\n```\r\n在函数作用域中可以访问到全局作用域的变量，在全局作用域中无法访问到函数作用域的变量\r\n\r\n# 开始弄懂闭包🍖\r\n[参考文档](https://zhuanlan.zhihu.com/p/22486908)\r\n\r\n\r\n",
       "data": {
         "title": "JavaScript: 闭包",
@@ -39,6 +57,11 @@
     }
   ],
   "tags": [
+    {
+      "name": "Git",
+      "slug": "D-3t-2pwn",
+      "used": true
+    },
     {
       "index": -1,
       "name": "JavaScript",

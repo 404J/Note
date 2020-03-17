@@ -62,6 +62,33 @@ func1()
 在函数作用域中可以访问到全局作用域的变量，在全局作用域中无法访问到函数作用域的变量
 
 # 开始弄懂闭包🍖
-[参考文档](https://zhuanlan.zhihu.com/p/22486908)
+## 1. 什么是闭包？😮
+```
+(function () {  // 立即执行函数
+    var localParam = "局部变量"
+    function func () {
+        console.log(localParam)
+    }
+})()
+```
+上面code中，立即执行函数中的三行代码: 一个局部变量，一个可以访问这个局部变量的函数，这两个条件的总和（或者叫做环境）就是闭包。
 
+## 2. 闭包的作用是什么？😜
+假如说，一个公司的员工的基础工资为1000💰，但是作为老板的你不希望其他leader随随便便就给手下的员工涨工资，需要经过你的审核。那么下面方案就符合你的要求：
+```
+(function () {
+    var employeeSalary = 1000
+    function riseSalary (amount) {
+        console.log("老板审核完成，允许涨工资")
+        employeeSalary += amount
+        return employeeSalary
+    }
+    globalThis.riseSalary = riseSalary
+})()
+console.log(globalThis.riseSalary(100))
+```
+如果想给员工涨工资，就必须调用`riseSalary()`函数，小leader就不能随随便便操作`employeeSalary`。
+其实我理解的闭包的作用就是，有那么一个变量，你不希望把它暴漏在全局作用域，从而让别人直接访问到。那么你会把这个变量声明为局部变量，但是局部变量别人就访问不到了。那么此时就需要使用闭包，提供一个访问器（函数），让使用者间接使用这个局部变量。
 
+## 3. 小结⏳
+闭包看起来不就是想让`var`命令声明的变量不可以在全局访问到吗？！😂那就用 ES6 的`let`和`const`来声明变量吧！

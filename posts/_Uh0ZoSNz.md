@@ -70,6 +70,14 @@ func1()
         console.log(localParam)
     }
 })()
+
+闭包在 ES6 体现：
+{
+    let localParam = "局部变量"
+    function func () {
+        console.log(localParam)
+    }
+}
 ```
 上面code中，立即执行函数中的三行代码: 一个局部变量，一个可以访问这个局部变量的函数，这两个条件的总和（或者叫做环境）就是闭包。
 
@@ -92,3 +100,4 @@ console.log(globalThis.riseSalary(100))
 
 ## 3. 小结⏳
 闭包看起来不就是想让`var`命令声明的变量不可以在全局访问到吗？！😂那就用 ES6 的`let`和`const`来声明变量吧！
+最后发现一篇挺好的文章，丢个链接[👍](https://www.cnblogs.com/zhuzhenwei918/p/6131345.html)

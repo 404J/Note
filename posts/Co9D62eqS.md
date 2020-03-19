@@ -7,22 +7,38 @@ hideInList: false
 feature: 
 isTop: false
 ---
-### **mongo**
+### **mongo[🍃](https://docs.mongodb.com/manual/reference/program/mongo/)**
+* run mongo shell with a connection string
+```
+mongo "mongodb://<username>:<password>@<host>:<port>/<db name>" <js file>
+```
+* run mongo shell with various command-line options
 ```
 
+mongo -u <username> -p <password> --host <host> --port <port>  <js file>
 ```
 
-### **mongodump**
+### **mongodump[🍀](https://docs.mongodb.com/manual/reference/program/mongodump/)**
 ```
-mongodump -h [ip]:[port] -d [db name] -u [userName] -p [pwd] -o ./
+mongodump -h <ip>:<port> -d <db name> -u <userName> -p <pwd> -c <collection> -o <dump dir>
 ```
+*Also can run mongodump shell with --uri*
+```
+mongodump --uri "mongodb://<username>:<password>@<host>:<port>/<db name>" [additional options]
+```
+
 
 ### **mongorestore**
 ```
-mongorestore -d [db name] -j 1 D:\databases\smarttransit_channel.tar\smarttransit_channel
+
+```
+
+### **mongoexport**
+```
+
 ```
 
 ### **mongoimport**
 ```
-mongoimport --db smarttransit --collection cardbins --file target.json
+
 ```

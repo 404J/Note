@@ -1,7 +1,7 @@
 {
   "posts": [
     {
-      "content": "### **mongo**\r\n```\r\n\r\n```\r\n\r\n### **mongodump**\r\n```\r\nmongodump -h [ip]:[port] -d [db name] -u [userName] -p [pwd] -o ./\r\n```\r\n\r\n### **mongorestore**\r\n```\r\nmongorestore -d [db name] -j 1 D:\\databases\\smarttransit_channel.tar\\smarttransit_channel\r\n```\r\n\r\n### **mongoimport**\r\n```\r\nmongoimport --db smarttransit --collection cardbins --file target.json\r\n```",
+      "content": "### **mongo[🍃](https://docs.mongodb.com/manual/reference/program/mongo/)**\r\n* run mongo shell with a connection string\r\n```\r\nmongo \"mongodb://<username>:<password>@<host>:<port>/<db name>\" <js file>\r\n```\r\n* run mongo shell with various command-line options\r\n```\r\n\r\nmongo -u <username> -p <password> --host <host> --port <port>  <js file>\r\n```\r\n\r\n### **mongodump[🍀](https://docs.mongodb.com/manual/reference/program/mongodump/)**\r\n```\r\nmongodump -h <ip>:<port> -d <db name> -u <userName> -p <pwd> -c <collection> -o <dump dir>\r\n```\r\n*Also can run mongodump shell with --uri*\r\n```\r\nmongodump --uri \"mongodb://<username>:<password>@<host>:<port>/<db name>\" [additional options]\r\n```\r\n\r\n\r\n### **mongorestore**\r\n```\r\n\r\n```\r\n\r\n### **mongoexport**\r\n```\r\n\r\n```\r\n\r\n### **mongoimport**\r\n```\r\n\r\n```",
       "data": {
         "title": "MongoDB: 基础命令",
         "date": "2020-03-17 17:31:51",

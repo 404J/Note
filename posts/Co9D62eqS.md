@@ -14,7 +14,6 @@ mongo "mongodb://<username>:<password>@<host>:<port>/<db name>" <js file>
 ```
 * run mongo shell with various command-line options
 ```
-
 mongo -u <username> -p <password> --host <host> --port <port>  <js file>
 ```
 

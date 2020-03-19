@@ -17,6 +17,7 @@ mongo "mongodb://<username>:<password>@<host>:<port>/<db name>" <js file>
 mongo -u <username> -p <password> --host <host> --port <port>  <js file>
 ```
 
+---
 ### **mongodump[🍀](https://docs.mongodb.com/manual/reference/program/mongodump/)**
 ```
 mongodump -h <ip>:<port> -d <db name> -u <userName> -p <pwd> -c <collection> -o <dump dir>
@@ -26,18 +27,23 @@ mongodump -h <ip>:<port> -d <db name> -u <userName> -p <pwd> -c <collection> -o 
 mongodump --uri "mongodb://<username>:<password>@<host>:<port>/<db name>" [additional options]
 ```
 
-
-### **mongorestore**
+---
+### **mongorestore[🌴](https://docs.mongodb.com/manual/reference/program/mongorestore/)** 
 ```
-
+mongorestore [options] [<directory>/<BSON file>]
 ```
+*Part of options is same as [mongodump](#mongodump)*
 
-### **mongoexport**
+---
+### **mongoexport[☘️](https://docs.mongodb.com/manual/reference/program/mongoexport/)**
 ```
+mongoexport -u <username> -p <password> --host <host> --port <port> -d <db name>  -c <collection> --out <json/csv file>
+```
+*Also can run mongoexport shell with --uri*
 
+---
+### **mongoimport[🍂](https://docs.mongodb.com/manual/reference/program/mongoimport/)**
 ```
-
-### **mongoimport**
+mongoimport -u <username> -p <password> --host <host> --port <port> -d <db name>  -c <collection> --file <json/csv file>
 ```
-
-```
+*Also can run mongoimport shell with --uri*

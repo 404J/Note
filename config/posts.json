@@ -1,7 +1,25 @@
 {
   "posts": [
     {
-      "content": "### **mongo[🍃](https://docs.mongodb.com/manual/reference/program/mongo/)**\r\n* run mongo shell with a connection string\r\n```\r\nmongo \"mongodb://<username>:<password>@<host>:<port>/<db name>\" <js file>\r\n```\r\n* run mongo shell with various command-line options\r\n```\r\nmongo -u <username> -p <password> --host <host> --port <port>  <js file>\r\n```\r\n\r\n### **mongodump[🍀](https://docs.mongodb.com/manual/reference/program/mongodump/)**\r\n```\r\nmongodump -h <ip>:<port> -d <db name> -u <userName> -p <pwd> -c <collection> -o <dump dir>\r\n```\r\n*Also can run mongodump shell with --uri*\r\n```\r\nmongodump --uri \"mongodb://<username>:<password>@<host>:<port>/<db name>\" [additional options]\r\n```\r\n\r\n\r\n### **mongorestore**\r\n```\r\n\r\n```\r\n\r\n### **mongoexport**\r\n```\r\n\r\n```\r\n\r\n### **mongoimport**\r\n```\r\n\r\n```",
+      "content": "**Yanina is very beautiful, and she is also very slim!**\r\n```\r\nvar person = {\r\n    firstName: 'Mars',\r\n    lastName: 'Shi',\r\n    fullName: function () {\r\n        console.log(this.firstName, this.lastName)\r\n    }\r\n}\r\n\r\nperson.fullName()\r\n```\r\n以上文中的英语语句和js code进行对比，来初步理解JavaScript中的this用法。\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+      "data": {
+        "title": "JavaScript : this",
+        "date": "2020-03-19 21:33:12",
+        "tags": [
+          "JavaScript"
+        ],
+        "published": true,
+        "hideInList": false,
+        "feature": null,
+        "isTop": false
+      },
+      "isEmpty": false,
+      "excerpt": "",
+      "abstract": "",
+      "fileName": "G0jEltNXf"
+    },
+    {
+      "content": "### **mongo[🍃](https://docs.mongodb.com/manual/reference/program/mongo/)**\r\n* run mongo shell with a connection string\r\n```\r\nmongo \"mongodb://<username>:<password>@<host>:<port>/<db name>\" <js file>\r\n```\r\n* run mongo shell with various command-line options\r\n```\r\nmongo -u <username> -p <password> --host <host> --port <port>  <js file>\r\n```\r\n\r\n---\r\n### **mongodump[🍀](https://docs.mongodb.com/manual/reference/program/mongodump/)**\r\n```\r\nmongodump -h <ip>:<port> -d <db name> -u <userName> -p <pwd> -c <collection> -o <dump dir>\r\n```\r\n*Also can run mongodump shell with --uri*\r\n```\r\nmongodump --uri \"mongodb://<username>:<password>@<host>:<port>/<db name>\" [additional options]\r\n```\r\n\r\n---\r\n### **mongorestore[🌴](https://docs.mongodb.com/manual/reference/program/mongorestore/)** \r\n```\r\nmongorestore [options] [<directory>/<BSON file>]\r\n```\r\n*Part of options is same as [mongodump](#mongodump)*\r\n\r\n---\r\n### **mongoexport[☘️](https://docs.mongodb.com/manual/reference/program/mongoexport/)**\r\n```\r\nmongoexport -u <username> -p <password> --host <host> --port <port> -d <db name>  -c <collection> --out <json/csv file>\r\n```\r\n*Also can run mongoexport shell with --uri*\r\n\r\n---\r\n### **mongoimport[🍂](https://docs.mongodb.com/manual/reference/program/mongoimport/)**\r\n```\r\nmongoimport -u <username> -p <password> --host <host> --port <port> -d <db name>  -c <collection> --file <json/csv file>\r\n```\r\n*Also can run mongoimport shell with --uri*",
       "data": {
         "title": "MongoDB: 基础命令",
         "date": "2020-03-17 17:31:51",

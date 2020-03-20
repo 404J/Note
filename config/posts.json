@@ -1,7 +1,7 @@
 {
   "posts": [
     {
-      "content": "**Yanina is very beautiful, and she is also very slim!**\r\n```\r\nvar person = {\r\n    firstName: 'Mars',\r\n    lastName: 'Shi',\r\n    fullName: function () {\r\n        console.log(this.firstName, this.lastName)\r\n    }\r\n}\r\n\r\nperson.fullName()\r\n```\r\n以上文中的英语语句和js code进行对比，来初步理解JavaScript中的this用法。\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+      "content": "**Yanina is very beautiful, and she is also very slim!**\r\n```\r\nvar person = {\r\n    firstName: 'Mars',\r\n    lastName: 'Shi',\r\n    fullName: function () {\r\n        console.log(this.firstName, this.lastName)\r\n    }\r\n}\r\n\r\nperson.fullName()\r\n```\r\n以上文中的英语语句和js code进行对比，来初步理解JavaScript中的this用法。\r\n> 🍋\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
       "data": {
         "title": "JavaScript : this",
         "date": "2020-03-19 21:33:12",
@@ -37,25 +37,7 @@
       "fileName": "Co9D62eqS"
     },
     {
-      "content": "### **远端代码clone到本地**\r\n```\r\ngit clone -b [branch name] [remote repository address]\r\n```\r\n\r\n### **本地新建分支**\r\n```\r\ngit branch [branch name]\r\ngit checkout [branch name]\r\n```\r\n\r\n### **删除本地分支**\r\n```\r\ngit branch -D [branch name]\r\n```\r\n\r\n### **删除远端分支**\r\n```\r\ngit push origin --delete [branch name]\r\n```\r\n\r\n### **rebase流程**\r\n```\r\n先在自己的分支上执行，git fetch\r\n然后在自己的分支上执行 git rebase origin/develop\r\n有冲突解决冲突, 解决完冲突 git add -A\r\ngit rebase --continue\r\n推送到远端 git push origin [remote branch name] -f\r\n```\r\n\r\n### **合并多个远程commit提交**\r\n```\r\n\r\n```\r\n\r\n### **更改本地分支的名字**\r\n```\r\ngit checkout [old name]\r\ngit branch -m [new name]\r\n```\r\n\r\n### **将本地分支推送到远端并关联**\r\n```\r\ngit push --set-upstream origin [remote branch name]\r\n```\r\n\r\n### **将某次commit应用到某一分支**\r\n```\r\ngit cherry-pick [commit id]\r\n```\r\n\r\n### **将远端分支拉取到本地**\r\n```\r\ngit fetch && git checkout [remote branch name] \r\n```",
-      "data": {
-        "title": "Git: 基础命令",
-        "date": "2020-03-17 17:17:46",
-        "tags": [
-          "Git"
-        ],
-        "published": true,
-        "hideInList": false,
-        "feature": null,
-        "isTop": false
-      },
-      "isEmpty": false,
-      "excerpt": "",
-      "abstract": "",
-      "fileName": "idEonHImY"
-    },
-    {
-      "content": "在了解 js 中的闭包概念之前，首先了解以下几个概念：\r\n\r\n- [立即执行函数](#立即执行函数)\r\n- [作用域以及变量](#作用域以及变量)\r\n\r\n### 立即执行函数🍑\r\n首先理解以下概念：函数声明，函数表达式，匿名函数。如下code：\r\n```\r\nfunction fun () {\r\n    console.log(\"函数声明\")\r\n}\r\nvar f = function fun () {\r\n    console.log(\"函数表达式\")\r\n}\r\nfunction () {\r\n    console.log(\"匿名函数\")\r\n}\r\n```\r\n立即执行函数即为函数表达式在创建后立即执行。实现方式如下：\r\n```\r\n(function (param) {\r\n    console.log(param) // 输出 1，使用()运算符\r\n} ) (1)\r\n\r\n(function (param) {\r\nconsole.log(param) // 输出 1，使用()运算符\r\n} (1) )\r\n\r\n[! || - || +]function (param) {\r\nconsole.log(param) // 输出 1 ，使用 ! 或 - 或 + 运算符\r\n} (1)\r\n```\r\n\r\n### 作用域以及变量🍔\r\nES5 只有全局作用域和函数作用域，全局作用域只的是script标签或者一个js文件。函数作用域指的是，函数被调用时，在内存中创建函数作用域，函数执行完毕后，该作用域被销毁，且函数每调用一次，就会创建一个新的函数作用域，相互独立。当在函数作用域操作一个变量时，它会先在自身作用域中寻找，如果有就直接使用，如果没有则向上一级作用域中寻找，直到找到全局作用域，如果全局作用域中依然没有找到，则会报错ReferenceError。\r\n```\r\nvar param = '全局变量param'\r\nfunction func1 () {\r\n  var param1 = 'func1的局部变量param1'\r\n  function func2 () {\r\n    var param2 = 'func1的局部变量param2'\r\n    console.log(param2) // func1的局部变量param2\r\n    console.log(param) // 全局变量param\r\n  }\r\n  func2()\r\n  console.log(param) // 全局变量param\r\n  console.log(param1) // func1的局部变量param1\r\n  console.log(param2) // ReferenceError: param2 is not defined\r\n}\r\n\r\nfunc1()\r\n```\r\n在函数作用域中可以访问到全局作用域的变量，在全局作用域中无法访问到函数作用域的变量\r\n\r\n# 开始弄懂闭包🍖\r\n## 1. 什么是闭包？😮\r\n```\r\n(function () {  // 立即执行函数\r\n    var localParam = \"局部变量\"\r\n    function func () {\r\n        console.log(localParam)\r\n    }\r\n})()\r\n\r\n闭包在 ES6 体现：\r\n{\r\n    let localParam = \"局部变量\"\r\n    function func () {\r\n        console.log(localParam)\r\n    }\r\n}\r\n```\r\n上面code中，立即执行函数中的三行代码: 一个局部变量，一个可以访问这个局部变量的函数，这两个条件的总和（或者叫做环境）就是闭包。\r\n\r\n## 2. 闭包的作用是什么？😜\r\n假如说，一个公司的员工的基础工资为1000💰，但是作为老板的你不希望其他leader随随便便就给手下的员工涨工资，需要经过你的审核。那么下面方案就符合你的要求：\r\n```\r\n(function () {\r\n    var employeeSalary = 1000\r\n    function riseSalary (amount) {\r\n        console.log(\"老板审核完成，允许涨工资\")\r\n        employeeSalary += amount\r\n        return employeeSalary\r\n    }\r\n    globalThis.riseSalary = riseSalary\r\n})()\r\nconsole.log(globalThis.riseSalary(100))\r\n```\r\n如果想给员工涨工资，就必须调用`riseSalary()`函数，小leader就不能随随便便操作`employeeSalary`。\r\n其实我理解的闭包的作用就是，有那么一个变量，你不希望把它暴漏在全局作用域，从而让别人直接访问到。那么你会把这个变量声明为局部变量，但是局部变量别人就访问不到了。那么此时就需要使用闭包，提供一个访问器（函数），让使用者间接使用这个局部变量。\r\n\r\n## 3. 小结⏳\r\n闭包看起来不就是想让`var`命令声明的变量不可以在全局访问到吗？！😂那就用 ES6 的`let`和`const`来声明变量吧！\r\n最后发现一篇挺好的文章，丢个链接[👍](https://www.cnblogs.com/zhuzhenwei918/p/6131345.html)\r\n",
+      "content": "在了解 js 中的闭包概念之前，首先了解以下几个概念：\r\n\r\n- [立即执行函数](#立即执行函数)\r\n- [作用域以及变量](#作用域以及变量)\r\n\r\n### 立即执行函数🍑\r\n首先理解以下概念：函数声明，函数表达式，匿名函数。如下code：\r\n```\r\nfunction fun () {\r\n    console.log(\"函数声明\")\r\n}\r\nvar f = function fun () {\r\n    console.log(\"函数表达式\")\r\n}\r\nfunction () {\r\n    console.log(\"匿名函数\")\r\n}\r\n```\r\n立即执行函数即为函数表达式在创建后立即执行。实现方式如下：\r\n```\r\n(function (param) {\r\n    console.log(param) // 输出 1，使用()运算符\r\n} ) (1)\r\n\r\n(function (param) {\r\nconsole.log(param) // 输出 1，使用()运算符\r\n} (1) )\r\n\r\n[! || - || +]function (param) {\r\nconsole.log(param) // 输出 1 ，使用 ! 或 - 或 + 运算符\r\n} (1)\r\n```\r\n\r\n### 作用域以及变量🍔\r\nES5 只有全局作用域和函数作用域，全局作用域指的是script标签或者一个js文件。函数作用域指的是，函数被调用时，在内存中创建函数作用域，函数执行完毕后，该作用域被销毁，且函数每调用一次，就会创建一个新的函数作用域，相互独立。当在函数作用域操作一个变量时，它会先在自身作用域中寻找，如果有就直接使用，如果没有则向上一级作用域中寻找，直到找到全局作用域，如果全局作用域中依然没有找到，则会报错ReferenceError。\r\n```\r\nvar param = '全局变量param'\r\nfunction func1 () {\r\n  var param1 = 'func1的局部变量param1'\r\n  function func2 () {\r\n    var param2 = 'func1的局部变量param2'\r\n    console.log(param2) // func1的局部变量param2\r\n    console.log(param) // 全局变量param\r\n  }\r\n  func2()\r\n  console.log(param) // 全局变量param\r\n  console.log(param1) // func1的局部变量param1\r\n  console.log(param2) // ReferenceError: param2 is not defined\r\n}\r\n\r\nfunc1()\r\n```\r\n在函数作用域中可以访问到全局作用域的变量，在全局作用域中无法访问到函数作用域的变量\r\n\r\n# 开始弄懂闭包🍖\r\n## 1. 什么是闭包？😮\r\n```\r\n(function () {  // 立即执行函数\r\n    var localParam = \"局部变量\"\r\n    function func () {\r\n        console.log(localParam)\r\n    }\r\n})()\r\n\r\n闭包在 ES6 体现：\r\n{\r\n    let localParam = \"局部变量\"\r\n    function func () {\r\n        console.log(localParam)\r\n    }\r\n}\r\n```\r\n上面code中，立即执行函数中的三行代码: 一个局部变量，一个可以访问这个局部变量的函数，这两个条件的总和（或者叫做环境）就是闭包。\r\n\r\n## 2. 闭包的作用是什么？😜\r\n假如说，一个公司的员工的基础工资为1000💰，但是作为老板的你不希望其他leader随随便便就给手下的员工涨工资，需要经过你的审核。那么下面方案就符合你的要求：\r\n```\r\n(function () {\r\n    var employeeSalary = 1000\r\n    function riseSalary (amount) {\r\n        console.log(\"老板审核完成，允许涨工资\")\r\n        employeeSalary += amount\r\n        return employeeSalary\r\n    }\r\n    globalThis.riseSalary = riseSalary\r\n})()\r\nconsole.log(globalThis.riseSalary(100))\r\n```\r\n如果想给员工涨工资，就必须调用`riseSalary()`函数，小leader就不能随随便便操作`employeeSalary`。\r\n其实我理解的闭包的作用就是，有那么一个变量，你不希望把它暴漏在全局作用域，从而让别人直接访问到。那么你会把这个变量声明为局部变量，但是局部变量别人就访问不到了。那么此时就需要使用闭包，提供一个访问器（函数），让使用者间接使用这个局部变量。\r\n\r\n## 3. 小结⏳\r\n闭包看起来不就是想让`var`命令声明的变量不可以在全局访问到吗？！😂那就用 ES6 的`let`和`const`来声明变量吧！\r\n最后发现一篇挺好的文章，丢个链接[👍](https://www.cnblogs.com/zhuzhenwei918/p/6131345.html)\r\n",
       "data": {
         "title": "JavaScript: 闭包",
         "date": "2020-03-17 15:28:44",
@@ -101,7 +83,7 @@
     {
       "name": "Git",
       "slug": "D-3t-2pwn",
-      "used": true
+      "used": false
     },
     {
       "index": -1,

@@ -5,7 +5,7 @@
     "dateFormat": "YYYY-MM-DD",
     "feedCount": 10,
     "feedFullText": true,
-    "footerInfo": "如果你觉得一个概念很复杂，那么很可能是你理解错了！编程界崇尚以简洁优雅为美!",
+    "footerInfo": "🍋🍋🍋🍋🍋🍋🍋",
     "postPageSize": 10,
     "postPath": "",
     "postUrlFormat": "SHORT_ID",
@@ -14,25 +14,7 @@
     "siteName": "Note",
     "tagPath": "",
     "tagUrlFormat": "SHORT_ID",
-    "themeName": "notes"
+    "themeName": "simple"
   },
-  "customConfig": {
-    "contentBgColor": "#ffffff",
-    "contentMaxWidth": "800px",
-    "customCss": "",
-    "facebook": "",
-    "ga": "",
-    "github": "https://github.com/404J",
-    "linkColor": "rgba(0,0,0,.98)",
-    "linkHoverColor": "#006CFF",
-    "openPostToc": true,
-    "pageBgColor": "#ffffff",
-    "siteFont": "-apple-system,BlinkMacSystemFont,'Helvetica Neue','PingFang SC','Hiragino Sans GB','Droid Sans Fallback','Microsoft YaHei',sans-serif",
-    "textColor": "rgba(0, 0, 0, 0.86)",
-    "textSize": "16px",
-    "titleAlign": "center",
-    "twitter": "",
-    "weibo": "",
-    "zhihu": ""
-  }
+  "customConfig": {}
 }

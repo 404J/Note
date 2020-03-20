@@ -20,6 +20,7 @@ var person = {
 person.fullName()
 ```
 以上文中的英语语句和js code进行对比，来初步理解JavaScript中的this用法。
+> 🍋
 
 
 

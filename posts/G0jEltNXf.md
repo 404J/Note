@@ -48,6 +48,7 @@ person.fullName() // Mars Shi
 
 在下面这些情景中， this 关键字可能会变得十分难以理解。在示例中同时给出了解决有关 this 使用错误的方案。
 #### 1. 包含 this 的方法被当做回调函数时遇到的问题🤑
+
 error:
 ```
 var person = {
@@ -61,6 +62,7 @@ setTimeout(person.fullName, 1000)
 ```
 > `person.fullName`作为*setTimeout*的回调函数，此时的*fullName*函数执行的上下文为
 > *Timeout*对象，所以此时this指向的对象为*Timeout*对象。
+
 correct:
 ```
 var person = {
@@ -76,6 +78,8 @@ setTimeout(person.fullName.bind(person), 1000)
 > 使用bind()方法显式的设置this的值。
 
 #### 2. this 出现在闭包内遇到的问题😧
+
+error:
 ```
 var clazz = {
     clazzName: 'class No.1',
@@ -92,6 +96,7 @@ var clazz = {
 clazz.call()
 ```
 > *forEach*中的匿名函数为*call*的内层函数，内层函数中不可访问外层函数的this变量
+
 correct:
 ```
 var clazz = {
@@ -125,9 +130,11 @@ var clazz = {
 
 clazz.call()
 ```
-> 方法一使用变量将this'转存'。方法二，使用*ES6*的箭头函数，箭头函数内部的this是词法作用域，由上下文确定，本例中的上下文是*clazz*
+> 方法一使用变量将this'转存'。方法二，使用*ES6*的箭头函数，箭头函数内部的this是词法作用域，
+> 由上下文确定，本例中的上下文是*clazz*
 
 #### 3. 把一个 this 方法 赋给一个变量时出现的问题😌
+
 error:
 ```
 var students = ['mars', 'yanina']
@@ -145,7 +152,9 @@ var clazz = {
 var callFromClass1 = clazz.call
 callFromClass1()
 ```
-> 此时`callFromClass1()`取的*studesnts*不是*clazz*中的属性，而是全局的*clazz*，因为函数*callFromClass1*的执行上下文是全局。
+> 此时`callFromClass1()`取的*studesnts*不是*clazz*中的属性，而是全局的*clazz*，因为函
+> 数*callFromClass1*的执行上下文是全局。
+
 correct:
 ```
 var callFromClass1 = clazz.call.bind(clazz)
@@ -154,3 +163,38 @@ callFromClass1()
 > 使用`bind()`方法将*call*和*clazz*对象绑定起来，显式的设置*this*的值。
 
 #### 4. 当借用方法的时候 this 的值不正确的问题
+
+error:
+```
+var gameController = {
+	scores: [20, 34, 55, 46, 77],
+	avgScore: null,
+	players: [
+		{name: "Tommy", playerID: 987, age: 23},
+		{name: "Pau", playerID: 87, age: 33}
+	]
+}
+var appController = {
+	scores: [900, 845, 809, 950],
+	avgScore: null,
+	avg: function() {
+		var sumOfScores = this.scores.reduce(function(prev, cur, index, array) {
+			return prev + cur
+		})
+		this.avgScore = sumOfScores / this.scores.length
+	}
+}
+gameController.avgScore = appController.avg()
+console.log(gameController.avgScore)
+console.log(appController.avgScore)
+```
+> 在 avg 方法中的 this 不会指向 gameController 对象，而会指向 appController 对象，因
+> 为它是被 appController 对象所调用的。
+
+correct:
+```
+appController.avg.apply(gameController, gameController.scores)
+```
+> gameController 对象借用了 appController 的 avg() 方法。在 appController.avg() 中
+> 的 this 的值会被设置成 gameController 对象，因为我们把 gameController 作为第一个参数
+> 传入了 apply() 方法中。传入 apply() 方法的第一个参数会被显式地设置为 this 的值

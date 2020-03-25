@@ -19,8 +19,10 @@ var person = {
 
 person.fullName()
 ```
-> 以上文中的英语语句和js code进行对比，来初步理解JavaScript中的this用法。其中*Yanina*和> *person*映射，*she* 和*this*映射。在英文语句中，*she*用来代替上下文中的*Yanina*,>*this*关键字是用来指代那个被当前函数（就是使用了 this 的函数）绑定的对象*person*。*this*
-> 其实就是一个具有调用当前函数的对象的值的变量。
+> 以上文中的英语语句和js code进行对比，来初步理解JavaScript中的this用法。其中*Yanina*和
+> *person*映射，*she* 和*this*映射。在英文语句中，*she*用来代替上下文中的*Yanina*,
+> *this*关键字是用来指代那个被当前函数（就是使用了 this 的函数）绑定的对象*person*。
+> *this*其实就是一个具有调用当前函数的对象的值的变量。
 
 ## 全局作用域使用this 😉(非Node环境)
 ```
@@ -162,7 +164,7 @@ callFromClass1()
 ```
 > 使用`bind()`方法将*call*和*clazz*对象绑定起来，显式的设置*this*的值。
 
-#### 4. 当借用方法的时候 this 的值不正确的问题
+#### 4. 当借用方法的时候 this 的值不正确的问题🙃
 
 error:
 ```

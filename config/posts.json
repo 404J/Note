@@ -1,6 +1,24 @@
 {
   "posts": [
     {
+      "content": "*记录下常用或者不常用，会用或者不会用的 Linux 文件操作命令*\r\n---\r\n## 目录\r\n[dsf](#新建)\r\n---\r\n#### 新建\r\n```\r\nmkdir <folderName> // 新建文件夹\r\ntouch <fileName> // 新建文件\r\n```\r\n---\r\n#### 查看\r\n- 查看目录\r\n```\r\nll or ls -l // 显示目录文件详细信息\r\ndu -h <fileName or folderName> // 查看文件或者文件夹的大小\r\npwd // 显示当前路径\r\n```\r\n- 查看文件内容\r\n```\r\ncat <fileName> // 查看文件的全部内容\r\nhead -<headLine> <fileName> // 查看文件前几行的内容\r\ntail -n <startToTail> -f <fileName> // 显示文件后几行的内容\r\nmore <fileName> // 显示一屏文件内容。Space --> 下一屏内容; Enter --> 下一行内容; Q --> 退出\r\nless <fileName> // 类似于more，值得研究下\r\n🐖：more和less可以结合管道命令：history | more; ps -ef | more\r\n```\r\n- 查看文件状态\r\n```\r\nstat <fileName> // 查看文件详细信息\r\n```\r\n- 查看文件类型\r\n```\r\nfile <fileName> // 查看文件类型\r\n```\r\n---\r\n#### 删除\r\n```\r\nrm -f -i -r <fileName> // f --> force强制删除; i --> interactive交互式删除; r --> recursive递归删除文件夹\r\n```\r\n---\r\n#### 复制\r\n\r\n",
+      "data": {
+        "title": "Linux 命令之文件操作",
+        "date": "2020-04-02 09:03:34",
+        "tags": [
+          "Linux"
+        ],
+        "published": true,
+        "hideInList": false,
+        "feature": null,
+        "isTop": false
+      },
+      "isEmpty": false,
+      "excerpt": "",
+      "abstract": "",
+      "fileName": "eb1SrSwLN"
+    },
+    {
       "content": "**谨以此篇blog记录server的mongoDB被洗空😖~~~**\r\n\r\n### 1. admin db创建超级管理员用户\r\n- 首先进入MongoDB shell\r\n```\r\nmongo\r\n```\r\n- 此时默认进入的test数据库，切换到admin数据库。关于admin数据库在mongoDB中的作用，\r\nstackoverflow上的一位网友讲的挺清楚，在此引用一下：*The main purpose of this admin database is to store system collections and user authentication and authorization data, which includes the administrator and user's usernames, passwords, and roles. Access is limited to only to administrators, who have the ability to create, update, and delete users and assign roles.*\r\n```\r\nuse admin\r\n```\r\n- 创建Administrator\r\n```\r\ndb.createUser({\r\n    user: <username>,\r\n    pwd: <password>,\r\n    roles: [{\r\n        role: <role>, db: <targetDB> // role一般指定为\"userAdminAnyDatabase\"\r\n    }]\r\n})  \r\n```\r\n> 以下为mongoDB内置的role\r\n\r\n| 分类                          | role(角色) | 简要说明 |\r\n| ----------------------------- | ---------- | -------- |\r\n| 数据库用户角色(DB User Roles) |    `read` `readWrite`        |  为某个数据库创建一个用户, 分配该数据库的读写权力        |\r\n| 数据库管理员角色(DB Admin Roles) | `dbAdmin` `dbOwner` `userAdmin` | 拥有创建数据库, 和创建用户的权力 |\r\n| 集群管理角色(Culster Administration Roles) | `clusterAdmin` `clusterManager` `clusterMonitor` `hostManager` | 管理员组, 针对整个系统进行管理 |\r\n| 备份还原角色(Backup and Restoration Roles) | `backup` `restore` | 备份数据库, 还原数据库 |\r\n| 所有数据库角色(All-Database Roles) | `readAnyDatabase` `readWriteAnyDatabase` `userAdminAnyDatabase` `dbAdminAnyDatabase` | 拥有对admin操作的权限 |\r\n| Superuser Roles(超级管理员) | `root` `dbOwner` `userAdmin` `userAdminAnyDatabase` | 这几个角色角色提供了任何数据任何用户的任何权限的能力，拥有这个角色的用户可以在任何数据库上定义它们自己的权限 |\r\n\r\n### 2. 重启mongo服务，开启认证\r\n- 停止服务\r\n```\r\nservice mongodb stop\r\n```\r\n- 修改配置文件\r\n```\r\nwhereis mongodb.conf // 查找配置文件\r\nauth = true // 配置文件mongodb.conf 去掉 auth = true 前面的注释\r\n```\r\n- 重启服务\r\n```\r\nservice mongodb start\r\nor\r\nmongod -f mongodb.conf\r\n```\r\n\r\n### 3. 认证方式登录mongo\r\n- 登录\r\n```\r\nmongo\r\nuse admin\r\ndb.auth(<userName>, <password>)\r\nshow users // 查看用户\r\n```\r\n\r\n### 4. 创建指定db 用户\r\n- 认证登录admin后，切换至指定的db, 以管理员身份创建其他用户\r\n```\r\nuse <targetDB>\r\ndb.createUser({\r\n    user: <username>,\r\n    pwd: <password>,\r\n    roles: [{\r\n        role: <role>, db: <targetDB> // role一般指定为\"readWrite\"\r\n    }]\r\n})\r\nshow users // 可以通过 _id确定用户所指定的数据库\r\n```\r\n\r\n### 5. 修改用户密码及删除用户\r\n- 首先以管理员身份登录admin，然后进行修改一般用户密码操作\r\n```\r\nuse <targetDB> // 切换到待修改用户所在的db, 否则 user note found error\r\ndb.changeUserPassword(<userName>, <password>)\r\n```\r\n- 删除一般用户操作\r\n```\r\nuse <targetDB> // 切换到待删除用户所在的db, 否则 user note found error\r\ndb.dropUser(<userName>)\r\n```",
       "data": {
         "title": "Mongodb 用户管理",
@@ -94,6 +112,12 @@
   ],
   "tags": [
     {
+      "index": -1,
+      "name": "Linux",
+      "slug": "oTKW8mqTA",
+      "used": true
+    },
+    {
       "name": "MongoDB",
       "slug": "q4H-QJGk1",
       "used": true
@@ -109,12 +133,6 @@
       "name": "ES6",
       "slug": "es6",
       "used": true
-    },
-    {
-      "index": -1,
-      "name": "Linux",
-      "slug": "oTKW8mqTA",
-      "used": false
     },
     {
       "name": "Git",

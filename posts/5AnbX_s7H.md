@@ -15,7 +15,7 @@ isTop: false
 mongo
 ```
 - 此时默认进入的test数据库，切换到admin数据库。关于admin数据库在mongoDB中的作用，
-stackoverflow上的一位网友讲的听清楚，在此引用一下：*The main purpose of this admin database is to store system collections and user authentication and authorization data, which includes the administrator and user's usernames, passwords, and roles. Access is limited to only to administrators, who have the ability to create, update, and delete users and assign roles.*
+stackoverflow上的一位网友讲的挺清楚，在此引用一下：*The main purpose of this admin database is to store system collections and user authentication and authorization data, which includes the administrator and user's usernames, passwords, and roles. Access is limited to only to administrators, who have the ability to create, update, and delete users and assign roles.*
 ```
 use admin
 ```

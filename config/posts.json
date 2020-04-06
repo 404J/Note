@@ -1,7 +1,7 @@
 {
   "posts": [
     {
-      "content": "*记录下常用或者不常用，会用或者不会用的 Linux 文件操作命令*\r\n---\r\n## 目录\r\n[新建](#新建)\r\n[查看](#查看)\r\n[删除](#删除)\r\n[复制](#复制)\r\n[移到 or 重命名](#移到or重命名)\r\n[归档 or 解压缩](#归档or解压缩)\r\n[查找](#查找)\r\n---\r\n#### 新建\r\n```\r\nmkdir <folderName> // 新建文件夹\r\ntouch <fileName> // 新建文件\r\nln -s <source> <dest> // 创建文件软连接(穿个软连接)\r\n```\r\n---\r\n#### 查看\r\n- 查看目录\r\n```\r\nll or ls -l // 显示目录文件详细信息\r\ndu -h <fileName or folderName> // 查看文件或者文件夹的大小\r\npwd // 显示当前路径\r\n```\r\n- 查看文件内容\r\n```\r\ncat <fileName> // 查看文件的全部内容\r\nhead -<headLine> <fileName> // 查看文件前几行的内容\r\ntail -n <startToTail> -f <fileName> // 显示文件后几行的内容\r\nmore <fileName> // 显示一屏文件内容。Space --> 下一屏内容; Enter --> 下一行内容; Q --> 退出\r\nless <fileName> // 类似于more，值得研究下\r\n🐖：more和less可以结合管道命令：history | more; ps -ef | more\r\n```\r\n- 查看文件状态\r\n```\r\nstat <fileName> // 查看文件详细信息\r\n```\r\n- 查看文件类型\r\n```\r\nfile <fileName> // 查看文件类型\r\n```\r\n---\r\n#### 删除\r\n```\r\nrm -f -i -r <fileName> // f --> force强制删除; i --> interactive交互式删除; r --> recursive递归删除文件夹\r\n```\r\n---\r\n#### 复制\r\n- 本地复制\r\n```\r\ncp -r <source> <dest> // r --> 复制文件夹\r\n```\r\n- 远程复制\r\n```\r\nscp -r <localFile> <remoteUserName>@<remoteIp>:<remoteFolder> // 本地复制到远程，r --> 复制文件夹\r\nscp -r <remoteUserName>@<remoteIp>:<remoteFolder> <localFile> // 远程复制到本地，r --> 复制文件夹\r\n```\r\n---\r\n#### 移到 or 重命名\r\n```\r\nmv <source> <dest> // 移动 or 重命名 文件或文件夹\r\n```\r\n---\r\n#### 归档 or 解压缩\r\n- 压缩\r\n```\r\ntar -cvf <dest.tar> <source> // 归档成*.tar包, c --> 建立档案; v --> 显示过程; f --> 使用档案名字，必填且最后一个参数\r\ntar -czvf <dest.tar.gz> <source> // 压缩成*.tar.gz文件, z --> 有gzip属性\r\ntar -cjvf <dest.tar.bz2> <source> // 压缩成*.tar.bz2文件, j --> 有bz2属性\r\nzip <dest.zip> <source> // 压缩成*.zip文件\r\n```\r\n- 解压\r\n```\r\ntar -xvf <dest.tar> // 展开*.tar包, x --> 解压\r\ntar -xzvf <dest.tar.gz> // 解压*.tar.gz文件\r\ntar -xjvf <dest.tar.gz> // 解压*.tar.bz2文件\r\nunzip <dest.zip> // 解压*.zip文件\r\n```\r\n> 🐖：[tar vs zip vs gz](https://itsfoss.com/tar-vs-zip-vs-gz/)\r\n> ---\r\n#### 查找\r\n```\r\nfind <targetFolders> -name <targetName> -type <b/d/c/p/l/f> // type -->块设备、目录、字符设备、管道、符号链接、普通文件\r\nlocate <targetName>\r\nwhereis <targetName>\r\n```\r\n",
+      "content": "*记录下常用或者不常用，会用或者不会用的 Linux 文件操作命令*\r\n---\r\n#### 新建\r\n```\r\nmkdir <folderName> // 新建文件夹\r\ntouch <fileName> // 新建文件\r\nln -s <source> <dest> // 创建文件软连接(穿个软连接)\r\n```\r\n---\r\n#### 查看\r\n- 查看目录\r\n```\r\nll or ls -l // 显示目录文件详细信息\r\ndu -h <fileName or folderName> // 查看文件或者文件夹的大小\r\npwd // 显示当前路径\r\n```\r\n- 查看文件内容\r\n```\r\ncat <fileName> // 查看文件的全部内容\r\nhead -<headLine> <fileName> // 查看文件前几行的内容\r\ntail -n <startToTail> -f <fileName> // 显示文件后几行的内容\r\nmore <fileName> // 显示一屏文件内容。Space --> 下一屏内容; Enter --> 下一行内容; Q --> 退出\r\nless <fileName> // 类似于more，值得研究下\r\n🐖：more和less可以结合管道命令：history | more; ps -ef | more\r\n```\r\n- 查看文件状态\r\n```\r\nstat <fileName> // 查看文件详细信息\r\n```\r\n- 查看文件类型\r\n```\r\nfile <fileName> // 查看文件类型\r\n```\r\n---\r\n#### 删除\r\n```\r\nrm -f -i -r <fileName> // f --> force强制删除; i --> interactive交互式删除; r --> recursive递归删除文件夹\r\n```\r\n---\r\n#### 复制\r\n- 本地复制\r\n```\r\ncp -r <source> <dest> // r --> 复制文件夹\r\n```\r\n- 远程复制\r\n```\r\nscp -r <localFile> <remoteUserName>@<remoteIp>:<remoteFolder> // 本地复制到远程，r --> 复制文件夹\r\nscp -r <remoteUserName>@<remoteIp>:<remoteFolder> <localFile> // 远程复制到本地，r --> 复制文件夹\r\n```\r\n---\r\n#### 移到 or 重命名\r\n```\r\nmv <source> <dest> // 移动 or 重命名 文件或文件夹\r\n```\r\n---\r\n#### 归档 or 解压缩\r\n- 压缩\r\n```\r\ntar -cvf <dest.tar> <source> // 归档成*.tar包, c --> 建立档案; v --> 显示过程; f --> 使用档案名字，必填且最后一个参数\r\ntar -czvf <dest.tar.gz> <source> // 压缩成*.tar.gz文件, z --> 有gzip属性\r\ntar -cjvf <dest.tar.bz2> <source> // 压缩成*.tar.bz2文件, j --> 有bz2属性\r\nzip <dest.zip> <source> // 压缩成*.zip文件\r\n```\r\n- 解压\r\n```\r\ntar -xvf <dest.tar> // 展开*.tar包, x --> 解压\r\ntar -xzvf <dest.tar.gz> // 解压*.tar.gz文件\r\ntar -xjvf <dest.tar.gz> // 解压*.tar.bz2文件\r\nunzip <dest.zip> // 解压*.zip文件\r\n```\r\n> 🐖：[tar vs zip vs gz](https://itsfoss.com/tar-vs-zip-vs-gz/)\r\n> ---\r\n#### 查找\r\n```\r\nfind <targetFolders> -name <targetName> -type <b/d/c/p/l/f> // type -->块设备、目录、字符设备、管道、符号链接、普通文件\r\nlocate <targetName>\r\nwhereis <targetName>\r\n```\r\n",
       "data": {
         "title": "Linux 命令之文件操作",
         "date": "2020-04-02 09:03:34",
@@ -10,7 +10,7 @@
         ],
         "published": true,
         "hideInList": false,
-        "feature": null,
+        "feature": "http://404j-images.test.upcdn.net/coverImage/hannah-joshua-46T6nVjRc2w-unsplash.jpg",
         "isTop": false
       },
       "isEmpty": false,
@@ -28,7 +28,7 @@
         ],
         "published": true,
         "hideInList": false,
-        "feature": null,
+        "feature": "http://404j-images.test.upcdn.net/coverImage/mongo-db-blog.jpeg",
         "isTop": false
       },
       "isEmpty": false,
@@ -46,7 +46,7 @@
         ],
         "published": true,
         "hideInList": false,
-        "feature": null,
+        "feature": "http://404j-images.test.upcdn.net/coverImage/shahadat-rahman-gnyA8vd3Otc-unsplash.jpg",
         "isTop": false
       },
       "isEmpty": false,
@@ -64,7 +64,7 @@
         ],
         "published": true,
         "hideInList": false,
-        "feature": null,
+        "feature": "http://404j-images.test.upcdn.net/coverImage/image_1.png",
         "isTop": false
       },
       "isEmpty": false,
@@ -82,7 +82,7 @@
         ],
         "published": true,
         "hideInList": false,
-        "feature": null,
+        "feature": "http://404j-images.test.upcdn.net/coverImage/shahadat-rahman-BfrQnKBulYQ-unsplash.jpg",
         "isTop": false
       },
       "isEmpty": false,
@@ -101,7 +101,7 @@
         ],
         "published": true,
         "hideInList": false,
-        "feature": null,
+        "feature": "http://404j-images.test.upcdn.net/coverImage/dwblog-ecmascriptseries-1.png",
         "isTop": false
       },
       "isEmpty": false,

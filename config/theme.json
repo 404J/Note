@@ -5,16 +5,32 @@
     "dateFormat": "YYYY-MM-DD",
     "feedCount": 10,
     "feedFullText": true,
-    "footerInfo": "🍋🍋🍋🍋🍋🍋🍋",
+    "footerInfo": "Powered by Gridea And 404J",
     "postPageSize": 10,
     "postPath": "",
     "postUrlFormat": "SHORT_ID",
     "showFeatureImage": true,
-    "siteDescription": "Mars同学今天记笔记了吗？",
-    "siteName": "Note",
+    "siteDescription": "",
+    "siteName": "哎呀~404",
     "tagPath": "",
     "tagUrlFormat": "SHORT_ID",
-    "themeName": "simple"
+    "themeName": "gridea-theme-vant"
   },
-  "customConfig": {}
+  "customConfig": {
+    "baidu": "",
+    "copy": "2020-03-15",
+    "douban": "",
+    "github": "",
+    "icp": "没备案咋办>_<",
+    "instagram": "",
+    "links": [],
+    "qq": "",
+    "rss": "",
+    "telegram": "",
+    "twitter": "",
+    "valineID": "xnJxPO3H5RoCqkdiVs66cRmp-gzGzoHsz",
+    "valineKey": "oxSleKW908ctyQjiapuiwzLJ",
+    "weibo": "",
+    "weixin": ""
+  }
 }

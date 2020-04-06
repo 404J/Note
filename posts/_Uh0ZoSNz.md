@@ -4,7 +4,7 @@ date: 2020-03-17 15:28:44
 tags: [JavaScript]
 published: true
 hideInList: false
-feature: 
+feature: http://404j-images.test.upcdn.net/coverImage/shahadat-rahman-BfrQnKBulYQ-unsplash.jpg
 isTop: false
 ---
 在了解 js 中的闭包概念之前，首先了解以下几个概念：

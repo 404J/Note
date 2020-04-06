@@ -4,19 +4,10 @@ date: 2020-04-02 09:03:34
 tags: [Linux]
 published: true
 hideInList: false
-feature: 
+feature: http://404j-images.test.upcdn.net/coverImage/hannah-joshua-46T6nVjRc2w-unsplash.jpg
 isTop: false
 ---
 *记录下常用或者不常用，会用或者不会用的 Linux 文件操作命令*
----
-## 目录
-[新建](#新建)
-[查看](#查看)
-[删除](#删除)
-[复制](#复制)
-[移到 or 重命名](#移到or重命名)
-[归档 or 解压缩](#归档or解压缩)
-[查找](#查找)
 ---
 #### 新建
 ```

@@ -8,7 +8,7 @@ feature: http://404j-images.test.upcdn.net/coverImage/shahadat-rahman-gnyA8vd3Ot
 isTop: false
 ---
 **Yanina 👧 is very beautiful, and she is also very slim!**
-```
+```js
 var person = {
     firstName: 'Mars',
     lastName: 'Shi',
@@ -25,7 +25,7 @@ person.fullName()
 > *this*其实就是一个具有调用当前函数的对象的值的变量。
 
 ## 全局作用域使用this 😉(非Node环境)
-```
+```js
 var firstName = "Yanina"
 var lastName = "Bu"
 function fullName () {
@@ -52,7 +52,7 @@ person.fullName() // Mars Shi
 #### 1. 包含 this 的方法被当做回调函数时遇到的问题🤑
 
 error:
-```
+```js
 var person = {
     firstName: 'Mars',
     lastName: 'Shi',
@@ -66,7 +66,7 @@ setTimeout(person.fullName, 1000)
 > *Timeout*对象，所以此时this指向的对象为*Timeout*对象。
 
 correct:
-```
+```js
 var person = {
     firstName: 'Mars',
     lastName: 'Shi',
@@ -82,7 +82,7 @@ setTimeout(person.fullName.bind(person), 1000)
 #### 2. this 出现在闭包内遇到的问题😧
 
 error:
-```
+```js
 var clazz = {
     clazzName: 'class No.1',
     students: [
@@ -100,7 +100,7 @@ clazz.call()
 > *forEach*中的匿名函数为*call*的内层函数，内层函数中不可访问外层函数的this变量
 
 correct:
-```
+```js
 var clazz = {
     clazzName: 'class No.1',
     students: [
@@ -117,7 +117,7 @@ var clazz = {
 clazz.call()
 ```
 or
-```
+```js
 var clazz = {
     clazzName: 'class No.1',
     students: [
@@ -138,7 +138,7 @@ clazz.call()
 #### 3. 把一个 this 方法 赋给一个变量时出现的问题😌
 
 error:
-```
+```js
 var students = ['mars', 'yanina']
 var clazz = {
     clazzName: 'class No.1',
@@ -158,7 +158,7 @@ callFromClass1()
 > 数*callFromClass1*的执行上下文是全局。
 
 correct:
-```
+```js
 var callFromClass1 = clazz.call.bind(clazz)
 callFromClass1()
 ```
@@ -167,7 +167,7 @@ callFromClass1()
 #### 4. 当借用方法的时候 this 的值不正确的问题🙃
 
 error:
-```
+```js
 var gameController = {
 	scores: [20, 34, 55, 46, 77],
 	avgScore: null,
@@ -194,7 +194,7 @@ console.log(appController.avgScore)
 > 为它是被 appController 对象所调用的。
 
 correct:
-```
+```js
 appController.avg.apply(gameController, gameController.scores)
 ```
 > gameController 对象借用了 appController 的 avg() 方法。在 appController.avg() 中

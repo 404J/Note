@@ -88,6 +88,14 @@
       "note": "可写任意链接。如：邮箱链接(mailto:xxx@gmail.com)、关于页(https://xxx.com/post/about/)"
     },
     {
+      "name": "showDetailFeatureImage",
+      "label": "博客详情页是否显示封面",
+      "group": "特色功能",
+      "value": false,
+      "type": "switch",
+      "note": "若不需要，可关闭以加快页面加载速度"
+    },
+    {
       "name": "showSocial",
       "label": "社交信息",
       "group": "社交信息",
@@ -320,6 +328,27 @@
       "value": "",
       "type": "input",
       "note": "UA-xxxxxxxxx-x"
-    }
+    },
+    {
+      "name": "links",
+      "label": "连接收藏",
+      "group": "连接收藏",
+      "type": "array",
+      "value": [
+        {
+            "siteName": "Gridea 官网",
+            "siteLink": "https://gridea.dev",
+            "siteLogo": "",
+            "description": "一个静态博客写作客户端"
+        }
+      ],
+      "arrayItems": [
+          { "label": "名称", "name": "siteName", "type": "input", "value": "" },
+          { "label": "链接", "name": "siteLink", "type": "input", "value": "" },
+          { "label": "Logo", "name": "siteLogo", "type": "picture-upload", "value": "" },
+          { "label": "描述", "name": "description", "type": "textarea", "value": "" }
+      ],
+      "note": ""
+  }
   ]
 }

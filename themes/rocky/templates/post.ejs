@@ -37,7 +37,7 @@
         <h1 class="text-5xl font-semibold leading-normal pb-8 mb-8 border-b-8 border-gray-700">
           <%= post.title %>
         </h1>
-        <% if (themeConfig.showFeatureImage && post.feature) { %>
+        <% if (themeConfig.showDetailFeatureImage && post.feature) { %>
           <img src="<%= post.feature %>" alt="<%= post.title %>" class="block w-full mb-8">
         <% } %>
         <div class="mb-8 flex flex-wrap">

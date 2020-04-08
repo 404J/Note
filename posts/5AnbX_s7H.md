@@ -11,16 +11,16 @@ isTop: false
 
 ### 1. admin db创建超级管理员用户
 - 首先进入MongoDB shell
-```
+```shell
 mongo
 ```
 - 此时默认进入的test数据库，切换到admin数据库。关于admin数据库在mongoDB中的作用，
 stackoverflow上的一位网友讲的挺清楚，在此引用一下：*The main purpose of this admin database is to store system collections and user authentication and authorization data, which includes the administrator and user's usernames, passwords, and roles. Access is limited to only to administrators, who have the ability to create, update, and delete users and assign roles.*
-```
+```js
 use admin
 ```
 - 创建Administrator
-```
+```js
 db.createUser({
     user: <username>,
     pwd: <password>,
@@ -42,16 +42,16 @@ db.createUser({
 
 ### 2. 重启mongo服务，开启认证
 - 停止服务
-```
+```shell
 service mongodb stop
 ```
 - 修改配置文件
-```
+```shell
 whereis mongodb.conf // 查找配置文件
 auth = true // 配置文件mongodb.conf 去掉 auth = true 前面的注释
 ```
 - 重启服务
-```
+```shell
 service mongodb start
 or
 mongod -f mongodb.conf
@@ -59,7 +59,7 @@ mongod -f mongodb.conf
 
 ### 3. 认证方式登录mongo
 - 登录
-```
+```js
 mongo
 use admin
 db.auth(<userName>, <password>)
@@ -68,7 +68,7 @@ show users // 查看用户
 
 ### 4. 创建指定db 用户
 - 认证登录admin后，切换至指定的db, 以管理员身份创建其他用户
-```
+```js
 use <targetDB>
 db.createUser({
     user: <username>,
@@ -82,12 +82,12 @@ show users // 可以通过 _id确定用户所指定的数据库
 
 ### 5. 修改用户密码及删除用户
 - 首先以管理员身份登录admin，然后进行修改一般用户密码操作
-```
+```js
 use <targetDB> // 切换到待修改用户所在的db, 否则 user note found error
 db.changeUserPassword(<userName>, <password>)
 ```
 - 删除一般用户操作
-```
+```js
 use <targetDB> // 切换到待删除用户所在的db, 否则 user note found error
 db.dropUser(<userName>)
 ```

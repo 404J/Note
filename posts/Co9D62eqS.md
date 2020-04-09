@@ -4,7 +4,7 @@ date: 2020-03-17 17:31:51
 tags: [MongoDB]
 published: true
 hideInList: false
-feature: http://404j-images.test.upcdn.net/coverImage/mongodb-logo.jpg
+feature: http://404j-images.test.upcdn.net/coverImage/mongodb_logo.jpg
 isTop: false
 ---
 ### **mongo[🍃](https://docs.mongodb.com/manual/reference/program/mongo/)**

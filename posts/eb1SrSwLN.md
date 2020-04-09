@@ -4,7 +4,7 @@ date: 2020-04-02 09:03:34
 tags: [Linux]
 published: true
 hideInList: false
-feature: http://404j-images.test.upcdn.net/coverImage/hannah-joshua-46T6nVjRc2w-unsplash.jpg
+feature: http://404j-images.test.upcdn.net/coverImage/linux_shell_file.jpg
 isTop: false
 ---
 *记录下常用或者不常用，会用或者不会用的 Linux 文件操作命令*

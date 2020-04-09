@@ -4,7 +4,7 @@ date: 2020-03-28 13:14:14
 tags: [MongoDB]
 published: true
 hideInList: false
-feature: http://404j-images.test.upcdn.net/coverImage/mongodb-logo.jpg
+feature: http://404j-images.test.upcdn.net/coverImage/mongodb_logo.jpg
 isTop: false
 ---
 **谨以此篇blog记录server的mongoDB被洗空😖~~~**

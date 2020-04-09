@@ -114,18 +114,18 @@
     {
       "index": -1,
       "name": "Linux",
-      "slug": "oTKW8mqTA",
+      "slug": "linux",
       "used": true
     },
     {
       "name": "MongoDB",
-      "slug": "q4H-QJGk1",
+      "slug": "mongodb",
       "used": true
     },
     {
       "index": -1,
       "name": "JavaScript",
-      "slug": "BjPiTG8OK",
+      "slug": "javascript",
       "used": true
     },
     {
@@ -136,7 +136,19 @@
     },
     {
       "name": "Git",
-      "slug": "D-3t-2pwn",
+      "slug": "git",
+      "used": false
+    },
+    {
+      "index": -1,
+      "name": "Html",
+      "slug": "html",
+      "used": false
+    },
+    {
+      "index": -1,
+      "name": "Css",
+      "slug": "css",
       "used": false
     }
   ],

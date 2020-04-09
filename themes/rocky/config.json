@@ -33,6 +33,10 @@
         {
           "label": "VS Light",
           "value": "vs-light"
+        },
+        {
+          "label": "VSC Dark Plus",
+          "value": "vsc-dark-plus"
         }
       ]
     },

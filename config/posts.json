@@ -1,6 +1,65 @@
 {
   "posts": [
     {
+      "content": "- [JS在浏览器和Node下是如何工作的？](https://blog.csdn.net/tonylua/article/details/103286267)\r\n- ",
+      "data": {
+        "title": "JavaScript in Node",
+        "date": "2020-04-10 09:21:07",
+        "tags": [
+          "JavaScript",
+          "Node"
+        ],
+        "published": true,
+        "hideInList": false,
+        "feature": "http://404j-images.test.upcdn.net/coverImage/node.jpg",
+        "isTop": false
+      },
+      "isEmpty": false,
+      "excerpt": "",
+      "abstract": "",
+      "fileName": "ECeIsOKWN"
+    },
+    {
+      "content": "- [JS在浏览器和Node下是如何工作的？](https://blog.csdn.net/tonylua/article/details/103286267)\r\n- [JavaScript 运行机制--Event Loop详解](https://segmentfault.com/a/1190000013823623)\r\n- [JavaScript 运行机制详解：再谈Event Loop](https://www.ruanyifeng.com/blog/2014/10/event-loop.html)\r\n- [Tasks, microtasks, queues and schedules](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)\r\n- [process.nextTick()与promise.then()](https://segmentfault.com/q/1010000011914016)\r\n\r\n```html\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n  <head>\r\n    <script>\r\n      console.log(\"Hello world\")\r\n    </script>\r\n  </head>\r\n  <body>\r\n  </body>\r\n</html>\r\n```",
+      "data": {
+        "title": "JavaScript in browser",
+        "date": "2020-04-10 09:19:07",
+        "tags": [
+          "Browser",
+          "JavaScript"
+        ],
+        "published": true,
+        "hideInList": false,
+        "feature": "http://404j-images.test.upcdn.net/coverImage/js_in_bowser.png",
+        "isTop": false
+      },
+      "isEmpty": false,
+      "excerpt": "",
+      "abstract": "",
+      "fileName": "VpO2dVtAo"
+    },
+    {
+      "content": "- [从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理](https://juejin.im/post/5a6547d0f265da3e283a1df7#heading-0)\r\n",
+      "data": {
+        "title": "浅谈浏览器的工作原理",
+        "date": "2020-04-10 09:09:02",
+        "tags": [
+          "Browser",
+          "Css",
+          "Html",
+          "JavaScript"
+        ],
+        "published": true,
+        "hideInList": false,
+        "feature": "http://404j-images.test.upcdn.net/coverImage/browser.png",
+        "isTop": false
+      },
+      "isEmpty": false,
+      "excerpt": "",
+      "abstract": "",
+      "fileName": "hhmQSmeBP"
+    },
+    {
       "content": "*记录下常用或者不常用，会用或者不会用的 Linux 文件操作命令*\r\n---\r\n#### 新建\r\n```shell\r\nmkdir <folderName> # 新建文件夹\r\ntouch <fileName> # 新建文件\r\nln -s <source> <dest> # 创建文件软连接(穿个软连接)\r\n```\r\n---\r\n#### 查看\r\n- 查看目录\r\n```shell\r\nll or ls -l # 显示目录文件详细信息\r\ndu -h <fileName or folderName> # 查看文件或者文件夹的大小\r\npwd # 显示当前路径\r\n```\r\n- 查看文件内容\r\n```shell\r\ncat <fileName> # 查看文件的全部内容\r\nhead -<headLine> <fileName> # 查看文件前几行的内容\r\ntail -n <startToTail> -f <fileName> # 显示文件后几行的内容\r\nmore <fileName> # 显示一屏文件内容。Space --> 下一屏内容; Enter --> 下一行内容; Q --> 退出\r\nless <fileName> # 类似于more，值得研究下\r\n🐖：more和less可以结合管道命令：history | more; ps -ef | more\r\n```\r\n- 查看文件状态\r\n```shell\r\nstat <fileName> # 查看文件详细信息\r\n```\r\n- 查看文件类型\r\n```shell\r\nfile <fileName> # 查看文件类型\r\n```\r\n---\r\n#### 删除\r\n```shell\r\nrm -f -i -r <fileName> # f --> force强制删除; i --> interactive交互式删除; r --> recursive递归删除文件夹\r\n```\r\n---\r\n#### 复制\r\n- 本地复制\r\n```shell\r\ncp -r <source> <dest> # r --> 复制文件夹\r\n```\r\n- 远程复制\r\n```shell\r\nscp -r <localFile> <remoteUserName>@<remoteIp>:<remoteFolder> # 本地复制到远程，r --> 复制文件夹\r\nscp -r <remoteUserName>@<remoteIp>:<remoteFolder> <localFile> # 远程复制到本地，r --> 复制文件夹\r\n```\r\n---\r\n#### 移到 or 重命名\r\n```shell\r\nmv <source> <dest> # 移动 or 重命名 文件或文件夹\r\n```\r\n---\r\n#### 归档 or 解压缩\r\n- 压缩\r\n```shell\r\ntar -cvf <dest.tar> <source> # 归档成*.tar包, c --> 建立档案; v --> 显示过程; f --> 使用档案名字，必填且最后一个参数\r\ntar -czvf <dest.tar.gz> <source> # 压缩成*.tar.gz文件, z --> 有gzip属性\r\ntar -cjvf <dest.tar.bz2> <source> # 压缩成*.tar.bz2文件, j --> 有bz2属性\r\nzip <dest.zip> <source> # 压缩成*.zip文件\r\n```\r\n- 解压\r\n```shell\r\ntar -xvf <dest.tar> # 展开*.tar包, x --> 解压\r\ntar -xzvf <dest.tar.gz> # 解压*.tar.gz文件\r\ntar -xjvf <dest.tar.gz> # 解压*.tar.bz2文件\r\nunzip <dest.zip> # 解压*.zip文件\r\n```\r\n> 🐖：[tar vs zip vs gz](https:#itsfoss.com/tar-vs-zip-vs-gz/)\r\n> ---\r\n#### 查找\r\n```shell\r\nfind <targetFolders> -name <targetName> -type <b/d/c/p/l/f> # type -->块设备、目录、字符设备、管道、符号链接、普通文件\r\nlocate <targetName>\r\nwhereis <targetName>\r\n```\r\n",
       "data": {
         "title": "Linux 命令之文件操作",
@@ -112,6 +171,29 @@
   ],
   "tags": [
     {
+      "name": "Node",
+      "slug": "2Yn-ORo52",
+      "used": true
+    },
+    {
+      "index": -1,
+      "name": "Browser",
+      "slug": "browser",
+      "used": true
+    },
+    {
+      "index": -1,
+      "name": "Css",
+      "slug": "css",
+      "used": true
+    },
+    {
+      "index": -1,
+      "name": "Html",
+      "slug": "html",
+      "used": true
+    },
+    {
       "index": -1,
       "name": "Linux",
       "slug": "linux",
@@ -137,18 +219,6 @@
     {
       "name": "Git",
       "slug": "git",
-      "used": false
-    },
-    {
-      "index": -1,
-      "name": "Html",
-      "slug": "html",
-      "used": false
-    },
-    {
-      "index": -1,
-      "name": "Css",
-      "slug": "css",
       "used": false
     }
   ],

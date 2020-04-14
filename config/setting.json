@@ -1,7 +1,7 @@
 {
   "config": {
     "branch": "master",
-    "domain": "http://404j.fun:402",
+    "domain": "http://404j.fun",
     "email": "j1491361626@qq.com",
     "password": "sJ19970101",
     "platform": "sftp",

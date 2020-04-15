@@ -19,7 +19,7 @@ ln -s <source> <dest> # 创建文件软连接(穿个软连接)
 #### 查看
 - 查看目录
 ```shell
-ll or ls -l # 显示目录文件详细信息
+ll -h or ls -lh # 显示目录文件详细信息
 du -h <fileName or folderName> # 查看文件或者文件夹的大小
 pwd # 显示当前路径
 ```
@@ -54,7 +54,7 @@ cp -r <source> <dest> # r --> 复制文件夹
 - 远程复制
 ```shell
 scp -r <localFile> <remoteUserName>@<remoteIp>:<remoteFolder> # 本地复制到远程，r --> 复制文件夹
-scp -r <remoteUserName>@<remoteIp>:<remoteFolder> <localFile> # 远程复制到本地，r --> 复制文件夹
+scp -P <port> -r <remoteUserName>@<remoteIp>:<remoteFolder> <localFile> # 远程复制到本地，r --> 复制文件夹, P --> 指定端口
 ```
 ---
 #### 移到 or 重命名

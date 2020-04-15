@@ -5,7 +5,7 @@
     "dateFormat": "YYYY-MM-DD",
     "feedCount": 10,
     "feedFullText": true,
-    "footerInfo": "Powered by <a href=\"https://gridea.dev/\">Gridea</a> & 404J",
+    "footerInfo": "Powered by <a href=\"https://gridea.dev/\"; target=_blank>Gridea</a> · Made by 404J<br/>\n<div align=center><a href=\"http://beian.miit.gov.cn/\"; target=_blank> 苏ICP备20019059号</a></div>",
     "postPageSize": 5,
     "postPath": "",
     "postUrlFormat": "SHORT_ID",

@@ -96,7 +96,9 @@ Logged in as 404j on https://registry.npmjs.org/.
 > 需要npm官网验证邮箱呦(👉)[https://www.npmjs.com/email-edit]
 4. 上传包
 ```shell
-
+λ npm publish
+...
++ hello_npm_404@1.0.0
 ```
 
   

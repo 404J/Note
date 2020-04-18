@@ -30,10 +30,10 @@ isTop: false
 5. 异步http请求线程
 - 在XMLHttpRequest在连接后是通过浏览器新开一个线程请求
 - 将检测到状态变更时，如果设置有回调函数，异步http请求线程就产生状态变更事件，将这个回调放入任务队列中。再由JavaScript引擎执行
-![](http://404j.fun/post-images/1586516977648.jpg)
+![](/post-images/1586516977648.jpg)
 ---
 ### js如何在浏览器中运行 💥
-![](http://404j.fun/post-images/1586742611626.jpg)
+![](/post-images/1586742611626.jpg)
 1. JS引擎线程提供js的运行环境，此时会形成一个**执行栈（stack）**，当调用一个函数时，就把它推入运行时中的栈中
 2. **执行栈**中某一函数调用Web Apis接口（诸如发送 HTTP 请求、监听 DOM 事件、延迟执行 setTimeout 或 setInterval）的时候，需要提供一个回调（callback）函数，则 JS 将其控制权连同一个 callback 委派给 Web API 后移动到该函数中的下一行
 3. 此时Web Apis中的 事件触发线程/定时触发线程/异步http请求线程 就会去监听这些callback何时触发，当满足触发条件时，就会将这个callback推入到**callback queue**（任务队列）中

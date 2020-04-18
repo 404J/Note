@@ -66,7 +66,7 @@ isTop: false
   </body>
 </html>
 ```
-如你所愿，Browser 中 Console 的打印结果为：1 2 3 4 5 6
+> 如你所愿，Browser 中 Console 的打印结果为：1 2 3 4 5 6
 ---
 ### macrotask与microtask 
 > 先来一段代码：

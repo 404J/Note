@@ -1,23 +1,24 @@
 {
   "posts": [
     {
-      "content": "- [JS在浏览器和Node下是如何工作的？](https://blog.csdn.net/tonylua/article/details/103286267)\r\n- ",
+      "content": "#### 安装\r\n一般在安装Node之后，NPM作为Node的默认包管理器，已经被安装好了。可以执行 npm -v查看当前NPM版本\r\n```shell\r\nλ npm -v\r\n6.9.0\r\n```\r\n---\r\n#### 使用NPM安装依赖包\r\n以 express为例子。执行该命令的时候，首先会在当前目录检查是否有node_modules该文件夹，没有则创建。然后在node_modules目录下创建express目录。在代码中直接require('express')即可引用该包。\r\n\r\nNode中，使用require可以引用🔽\r\n1. 核心模块即Node内置的模块如fs, require('fs')；\r\n2. 文件模块即dev自己开发的模块，require('../hello.js')；\r\n3. 第三方模块，如express, require('express'), Node会首先查询当前文件目录下的node_modules目录，所以npm进行包管理和Node模块引用是相辅相成的。\r\n```shell\r\nλ npm install express\r\n...\r\n+ express@4.17.1\r\nadded 50 packages from 37 contributors and audited 126 packages in 6.899s\r\nfound 0 vulnerabilities\r\n```\r\n---\r\n#### 使用NPM移除依赖包\r\n对上面安装的express包进行移除\r\n```shell\r\nλ npm uninstall express\r\n...\r\nremoved 1 package and audited 160 packages in 1.452s\r\nfound 0 vulnerabilities\r\n```\r\n---\r\n#### 发布包\r\n简单记录如何将自己开发的模块发布到NPM仓库中并通过NPM安装。\r\n1. 创建简单的模块hello.js\r\n```js\r\nexports.printHello = function () {\r\n  console.log('hello nodejs')\r\n}\r\n```\r\n2. 执行`npm init `创建包描述文件package.json\r\n```shell\r\nλ npm init\r\nThis utility will walk you through creating a package.json file.\r\nIt only covers the most common items, and tries to guess sensible defaults.\r\n\r\nSee `npm help json` for definitive documentation on these fields\r\nand exactly what they do.\r\n\r\nUse `npm install <pkg>` afterwards to install a package and\r\nsave it as a dependency in the package.json file.\r\n\r\nPress ^C at any time to quit.\r\npackage name: (hellonpm) hello_npm_404\r\nversion: (1.0.0)\r\ndescription: A hello npm test\r\nentry point: (hello.js)\r\ntest command:\r\ngit repository:\r\nkeywords:\r\nauthor: 404\r\nlicense: (ISC)\r\nAbout to write to C:\\Users\\mars.shi\\Desktop\\helloNPM\\package.json:\r\n\r\n{\r\n  \"name\": \"hello_npm_404\",\r\n  \"version\": \"1.0.0\",\r\n  \"description\": \"A hello npm test\",\r\n  \"main\": \"hello.js\",\r\n  \"scripts\": {\r\n    \"test\": \"echo \\\"Error: no test specified\\\" && exit 1\"\r\n  },\r\n  \"author\": \"404\",\r\n  \"license\": \"ISC\"\r\n}\r\n\r\n\r\nIs this OK? (yes) yes\r\n```\r\n3. 注册包仓库账号\r\n```shell\r\nλ npm adduser\r\nUsername: 404j\r\nPassword:\r\nEmail: (this IS public) j1491361626@gmail.com\r\nLogged in as 404j on https://registry.npmjs.org/.\r\n```\r\n> 需要npm官网验证邮箱呦(👉)[https://www.npmjs.com/email-edit]\r\n4. 上传包\r\n```shell\r\n\r\n```\r\n\r\n  \r\n\r\n",
       "data": {
-        "title": "JavaScript in Node",
-        "date": "2020-04-10 09:21:07",
+        "title": "NPM 使用",
+        "date": "2020-04-18 17:38:47",
         "tags": [
-          "JavaScript",
-          "Node"
+          "NPM",
+          "Node",
+          "JavaScript"
         ],
         "published": true,
         "hideInList": false,
-        "feature": "http://404j-images.test.upcdn.net/coverImage/node.jpg",
+        "feature": "http://404j-images.test.upcdn.net/coverImage/npm.png",
         "isTop": false
       },
       "isEmpty": false,
       "excerpt": "",
       "abstract": "",
-      "fileName": "ECeIsOKWN"
+      "fileName": "npm-shi-yong"
     },
     {
       "content": "首先，浏览器是多进程工作的，每打开一个 tap 页面，就会新开一个独立的浏览器进程。\r\n### 浏览器有哪些主要的进程\r\n1. Browser进程：浏览器的主进程（负责协调、主控）\r\n2. 第三方插件进程：每种类型的插件对应一个进程，仅当使用该插件时才创建\r\n3. GPU进程：最多一个，用于3D绘制等\r\n4. 浏览器渲染进程（浏览器内核）：**Renderer进程**，内部是多线程的，负责页面渲染，脚本执行，事件处理等\r\n---\r\n### 关于Renderer进程 💥\r\n1. GUI渲染线程\r\n- 负责渲染浏览器界面，解析HTML，CSS，构建DOM树和RenderObject树，布局和绘制等\r\n- 当界面需要重绘（Repaint）或由于某种操作引发回流(reflow)时，该线程就会执行\r\n2. **JS引擎线程** 💥\r\n- 也称为JS内核，负责处理Javascript脚本程序（例如V8引擎）\r\n- 单线程运行js\r\n- **和GUI渲染线程互斥，不会同时运行，由于Js是可以操作DOM的，如果JS引擎线程和GUI渲染线程同时运行，这样就会产生冲突**\r\n3. 事件触发线程\r\n- 当对应事件触发（不论是WebAPIs完成事件触发，还是页面交互事件触发）时，该线程会将事件对应的回调函数放入**callback queue**（任务队列）中，等待js引擎线程的处理\r\n4. 定时触发线程\r\n- 对应于setTimeout，setInterval API，由该线程来计时，当计时结束，将事件对应的回调函数放入任务队列中\r\n- 当setTimeout的定时的时间小于4ms，一律按4ms来算\r\n5. 异步http请求线程\r\n- 在XMLHttpRequest在连接后是通过浏览器新开一个线程请求\r\n- 将检测到状态变更时，如果设置有回调函数，异步http请求线程就产生状态变更事件，将这个回调放入任务队列中。再由JavaScript引擎执行\r\n![](http://404j.fun/post-images/1587187987879.jpg)\r\n---\r\n### js如何在浏览器中运行 💥\r\n![](http://404j.fun/post-images/1587187994787.jpg)\r\n1. JS引擎线程提供js的运行环境，此时会形成一个**执行栈（stack）**，当调用一个函数时，就把它推入运行时中的栈中\r\n2. **执行栈**中某一函数调用Web Apis接口（诸如发送 HTTP 请求、监听 DOM 事件、延迟执行 setTimeout 或 setInterval）的时候，需要提供一个回调（callback）函数，则 JS 将其控制权连同一个 callback 委派给 Web API 后移动到该函数中的下一行\r\n3. 此时Web Apis中的 事件触发线程/定时触发线程/异步http请求线程 就会去监听这些callback何时触发，当满足触发条件时，就会将这个callback推入到**callback queue**（任务队列）中\r\n4. **事件循环（Event Loop）** 唯一的工作就是盯着 -- 回调队列上一有待执行（pending）的 callback 函数，就将其推入执行栈中；而这一动作发生的时间点，是 **栈一旦为空的时候**\r\n5. 之后此callback就会被执行\r\n\r\n> 接下来上代码：\r\n```html\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n  <head>\r\n    <script>\r\n      console.log(1)\r\n      setTimeout(() => {\r\n          console.log(3)\r\n          setTimeout(() =>{\r\n            console.log(5)\r\n          })\r\n      })\r\n      setTimeout(() => {\r\n          console.log(4)\r\n          setTimeout(() => {\r\n            console.log(6)\r\n          })\r\n      })\r\n      console.log(2)\r\n    </script>\r\n  </head>\r\n  <body>\r\n  </body>\r\n</html>\r\n```\r\n> 如你所愿，Browser 中 Console 的打印结果为：1 2 3 4 5 6\r\n---\r\n### macrotask与microtask \r\n> 先来一段代码：\r\n```html\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n  <head>\r\n    <script>\r\n      console.log(1)\r\n      setTimeout(() => {\r\n        console.log(2)\r\n        Promise.resolve().then(() => {\r\n          console.log('promise1')\r\n        }).then(() => {\r\n          console.log('promise2')\r\n        })\r\n      })\r\n      setTimeout(() => {\r\n        console.log(3)\r\n      })\r\n    </script>\r\n  </head>\r\n  <body>\r\n  </body>\r\n</html>\r\n```\r\n按照“队列理论”，结果应该为1 2 3 promise1 promise2。很遗憾输出的是1 2 promise1 promise2 3\r\n理解这个需要知道两个概念：\r\n- macrotask：宏任务，任务队列中没有充钱的用户~。包括：原生Promise\r\n- microtask ：微任务，任务队列中的VIP用户。当主线程执行完毕，如果微任务队列中有微任务，则会先进入执行栈，当微任务队列没有任务时，才会执行宏任务的队列。包括：setTimeout, setInterval, setImmediate, I/O\r\n\r\n",
@@ -150,13 +151,19 @@
   ],
   "tags": [
     {
-      "name": "JavaScript",
-      "slug": "OiN8CLTmo",
+      "index": -1,
+      "name": "NPM",
+      "slug": "jKPki5ft6",
       "used": true
     },
     {
       "name": "Node",
       "slug": "2lKxFb2mgF",
+      "used": true
+    },
+    {
+      "name": "JavaScript",
+      "slug": "OiN8CLTmo",
       "used": true
     },
     {

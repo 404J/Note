@@ -1,12 +1,17 @@
 {
   "config": {
-    "platform": "github",
-    "domain": "",
-    "repository": "",
     "branch": "",
-    "username": "",
+    "domain": "http://404j.fun",
     "email": "",
-    "token": ""
+    "password": "sJ19970101",
+    "platform": "sftp",
+    "port": 22,
+    "privateKey": "",
+    "remotePath": "/home/Note",
+    "repository": "",
+    "server": "47.102.202.188",
+    "token": "",
+    "username": "root"
   },
   "comment": {
     "commentPlatform": "gitalk",

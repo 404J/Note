@@ -100,6 +100,17 @@ Logged in as 404j on https://registry.npmjs.org/.
 ...
 + hello_npm_404@1.0.0
 ```
-
-  
-
+#### 安装包
+切换至另一个目录，执行
+```shell
+λ npm install hello_npm_404
+...
++ hello_npm_404@1.0.0
+added 1 package from 1 contributor and audited 1 package in 2.674s
+found 0 vulnerabilities
+```
+这样在这个目录就可以引用自己开发的NPM包了
+```js
+const hello = require('hello_npm_404')
+console.log(hello.printHello())
+```

@@ -78,7 +78,7 @@ tar -xjvf <dest.tar.gz> # 解压*.tar.bz2文件
 unzip <dest.zip> # 解压*.zip文件
 ```
 > 🐖：[tar vs zip vs gz](https:#itsfoss.com/tar-vs-zip-vs-gz/)
-> ---
+---
 #### 查找
 ```shell
 find <targetFolders> -name <targetName> -type <b/d/c/p/l/f> # type -->块设备、目录、字符设备、管道、符号链接、普通文件

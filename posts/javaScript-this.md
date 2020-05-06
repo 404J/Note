@@ -22,7 +22,7 @@ person.fullName()
 > 以上文中的英语语句和js code进行对比，来初步理解JavaScript中的this用法。其中*Yanina*和
 > *person*映射，*she* 和*this*映射。在英文语句中，*she*用来代替上下文中的*Yanina*,
 > *this*关键字是用来指代那个被当前函数（就是使用了 this 的函数）绑定的对象*person*。
-> *this*其实就是一个具有调用当前函数的对象的值的变量。
+> *this*其实就是一个具有**调用当前函数的对象的值的变量**。
 
 ## 全局作用域使用this 😉(非Node环境)
 ```js
@@ -46,36 +46,31 @@ person.fullName() // Mars Shi
 ```
 > 以上code中，*firstName*, *lastName*和*fullName*都是定义在全局作用域的变量。全局定义的
 > 函数中，this指向*window*对象。但是`person.fullName()`中this的**上下文**为*person*
-> 对象，所以，this指向*person*
+> 对象，所以，这里的this指向*person*
 
 在下面这些情景中， this 关键字可能会变得十分难以理解。在示例中同时给出了解决有关 this 使用错误的方案。
 #### 1. 包含 this 的方法被当做回调函数时遇到的问题🤑
 
 error:
 ```js
-var person = {
-    firstName: 'Mars',
-    lastName: 'Shi',
-    fullName: function () {
-        console.log(this.firstName, this.lastName)
-    }
+var obj = {
+  getThisName () {
+    console.log(this.constructor.name)
+  }
 }
-setTimeout(person.fullName, 1000)
+setTimeout(obj.getThisName, 1000)
 ```
-> `person.fullName`作为*setTimeout*的回调函数，此时的*fullName*函数执行的上下文为
-> *Timeout*对象，所以此时this指向的对象为*Timeout*对象。
+> `obj.getThisName`作为*setTimeout*的回调函数，此时的*getThisName*函数执行的上下文为
+> *Timeout*对象（Browser中， `this` 指向 `Window` 对象），所以此时this指向的对象为*Timeout*对象。
 
 correct:
 ```js
-var person = {
-    firstName: 'Mars',
-    lastName: 'Shi',
-    fullName: function () {
-        console.log(this)
-        console.log(this.firstName, this.lastName)
-    }
+var obj = {
+  getThisName () {
+    console.log(this.constructor.name)
+  }
 }
-setTimeout(person.fullName.bind(person), 1000)
+setTimeout(obj.getThisName.bind(obj), 1000)
 ```
 > 使用bind()方法显式的设置this的值。
 
@@ -154,7 +149,7 @@ var clazz = {
 var callFromClass1 = clazz.call
 callFromClass1()
 ```
-> 此时`callFromClass1()`取的*studesnts*不是*clazz*中的属性，而是全局的*clazz*，因为函
+> 此时`callFromClass1()`取的*studesnts*不是*clazz*中的属性，而是全局的*studesnts*，因为函
 > 数*callFromClass1*的执行上下文是全局。
 
 correct:

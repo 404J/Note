@@ -4,7 +4,7 @@ date: 2020-05-13 18:09:17
 tags: []
 published: true
 hideInList: false
-feature: 
+feature: http://404j-images.test.upcdn.net/coverImage/mongodb-aggregation.jpg
 isTop: false
 ---
 [Aggregation](https://docs.mongodb.com/manual/core/aggregation-pipeline/)

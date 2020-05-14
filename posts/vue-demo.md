@@ -1,8 +1,8 @@
 ---
-title: 'Vue'
+title: 'Vue: demo'
 date: 2020-05-06 19:51:54
 tags: [Vue]
-published: false
+published: true
 hideInList: false
 feature: http://404j-images.test.upcdn.net/coverImage/vue-demo.png
 isTop: false

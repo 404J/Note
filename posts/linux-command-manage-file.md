@@ -74,7 +74,7 @@ zip <dest.zip> <source> # 压缩成*.zip文件
 ```shell
 tar -xvf <dest.tar> # 展开*.tar包, x --> 解压
 tar -xzvf <dest.tar.gz> # 解压*.tar.gz文件
-tar -xjvf <dest.tar.gz> # 解压*.tar.bz2文件
+tar -xjvf <dest.tar.bz2> # 解压*.tar.bz2文件
 unzip <dest.zip> # 解压*.zip文件
 ```
 > 🐖：[tar vs zip vs gz](https:#itsfoss.com/tar-vs-zip-vs-gz/)

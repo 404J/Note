@@ -46,7 +46,7 @@ db.person.aggregate([
 ])
 ```
 结果：
-```js
+```json
 {
         "_id" : ObjectId("5ebfef770855d7b7e372f0f4"),
         "name" : "Tom",
@@ -102,7 +102,7 @@ db.person.aggregate([
 ])
 ```
 结果：
-```js
+```json
 {
         "name" : "Lucy",
         "age" : 17,
@@ -133,7 +133,7 @@ db.person.aggregate([
 ])
 ```
 结果：
-```js
+```json
 {
         "_id" : ObjectId("5ebfef770855d7b7e372f0f4"),
         "name" : "Tom",
@@ -169,7 +169,7 @@ db.person.aggregate([
 ])
 ```
 结果：
-```js
+```json
 {
         "_id" : ObjectId("5ebff02b0855d7b7e372f120"),
         "name" : "Jack",
@@ -212,7 +212,7 @@ db.person.aggregate([
 ])
 ```
 结果：
-```js
+```json
 {
         "_id" : ObjectId("5ebff02b0855d7b7e372f120"),
         "name" : "Jack",
@@ -252,7 +252,7 @@ db.person.aggregate([
 ])
 ```
 结果：
-```js
+```json
 {
         "_id" : ObjectId("5ebfefb10855d7b7e372f10d"),
         "name" : "Jay",
@@ -295,7 +295,7 @@ db.sales.aggregate([
 ])
 ```
 结果：
-```js
+```json
 { "_id" : null, "totalSaleAmount" : NumberDecimal("452.5") }
 ```
 - 根据item进行分组，统计每组的总的销售额，降序展示销售额大于100的数据
@@ -326,7 +326,7 @@ db.sales.aggregate([
 ])
 ```
 结果：
-```js
+```json
 {
         "_id" : "abc",
         "saleAmount" : NumberDecimal("170")
@@ -379,7 +379,7 @@ db.sales.aggregate([
 ])
 ```
 结果：
-```js
+```json
 {
         "_id" : "2015-06-04",
         "totalSaleAmount" : NumberDecimal("37.5"),
@@ -421,7 +421,7 @@ db.sales.aggregate([
 ])
 ```
 结果：
-```js
+```json
 {
         "_id" : "2016",
         "hasDupItems" : [

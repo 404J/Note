@@ -56,9 +56,9 @@ isTop: false
             <button>submit</button>
         </form>
 
-        <span style="color: red" @click="clickSpanOne">
+        <span style="background-color: red" @click="clickSpanOne">
             span1
-            <span style="color: black" @click.stop="clickSpanTwo">span2</span>
+            <span style="background-color: black" @click.stop="clickSpanTwo">span2</span>
         </span>
         <br />
         <input @keyup.enter="clickEnter" />
@@ -68,13 +68,21 @@ isTop: false
         </div>
         <br />
         <input v-model="searchText" />
-        <br/>
+        <br />
         <input :value="searchTextSelf" @input="searchTextSelf=$event.target.value" />
-        <br/>
-        <!-- <custom-input :value="searchTextCustom" @input="searchTextCustom=$event" /> -->
-        <custom-input v-model="searchTextCustom" />
-        <br/>
-        <my-component/>
+        <br />
+        <custom-input :value="searchTextCustom" @input="searchTextCustom=$event"></custom-input>
+        <custom-input v-model="searchTextCustom"></custom-input>
+        <br />
+        <component :is="myComponent"></component>
+        <my-component></my-component>
+        <my-props-component
+            test-str="this is testStr"
+            :test-arr="[1, 2]"
+            test-arr-str="[1, 2]"
+        >
+        </my-props-component>
+        1
     </div>
 </body>
 <script>
@@ -120,10 +128,12 @@ isTop: false
             'value'
         ],
         template: `
-            <input
-                v-bind:value="value"
-                v-on:input="$emit('input', $event.target.value)"
-            />
+            <div>
+                <input
+                    v-bind:value="value"
+                    v-on:input="$emit('input', $event.target.value)"
+                />
+            </div>
         `
     })
 
@@ -138,12 +148,32 @@ isTop: false
             <div>my test component</div>
         `
     }
+    
+    let MyPropsComponent = {
+        data () {
+            return {
+            }
+        },
+        props: {
+            testStr: String,
+            testArr: Array,
+            testArrStr: String
+        },
+        template: `
+            <div>
+                <div>testStr: {{ testStr }}</div>
+                <div>testArr: {{ testArr[0] }}</div>
+                <div>testArrStr: {{ typeof testArrStr }}</div>
+            </div>
+        `
+    }
 
     
     const app = new Vue({
         el: '#app',
         components: {
-            'my-component': MyComponent
+            MyComponent,
+            MyPropsComponent
         },
         data: {
             message: 'Hello Vue!',
@@ -166,7 +196,8 @@ isTop: false
             postFontSize: 1,
             searchText: 'hello mars',
             searchTextSelf: 'hello mars',
-            searchTextCustom: 'hello mars'
+            searchTextCustom: 'hello mars',
+            myComponent: 'my-component'
         },
         computed: {
             reversedMessageComputed() {

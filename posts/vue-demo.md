@@ -82,7 +82,6 @@ isTop: false
             test-arr-str="[1, 2]"
         >
         </my-props-component>
-        1
     </div>
 </body>
 <script>

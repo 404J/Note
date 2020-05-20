@@ -4,7 +4,7 @@ date: 2020-05-19 10:19:54
 tags: [Vue]
 published: true
 hideInList: false
-feature: 
+feature: http://404j-images.test.upcdn.net/coverImage/vue_dom_template.png
 isTop: false
 ---
 

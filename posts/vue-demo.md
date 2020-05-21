@@ -22,7 +22,7 @@ isTop: false
         <p>reversedMessageMethod: {{ reversedMessageMethod() }}</p>
         <p>reversedMessageWatch: {{ reversedMessageWatch }}</p>
         <input v-model="message" />
-        <br />
+        <hr>
         <template v-if="message === 'username'">
             <label>Username</label>
             <input placeholder="Enter your username" key="username-input">
@@ -56,32 +56,27 @@ isTop: false
             <button>submit</button>
         </form>
 
-        <span style="background-color: red" @click="clickSpanOne">
+        <span style="color: red" @click="clickSpanOne">
             span1
-            <span style="background-color: black" @click.stop="clickSpanTwo">span2</span>
+            <span style="color: black" @click.stop="clickSpanTwo">span2</span>
         </span>
-        <br />
+        <hr>
         <input @keyup.enter="clickEnter" />
-        <br />
+        <hr>
         <div :style="{ fontSize: postFontSize + 'em' }">
             <blog v-for="post of posts" :key="post.id" :post="post" @enlarge-text="enlargeText" />
         </div>
-        <br />
+        <hr>
         <input v-model="searchText" />
-        <br />
+        <hr>
         <input :value="searchTextSelf" @input="searchTextSelf=$event.target.value" />
-        <br />
+        <hr>
         <custom-input :value="searchTextCustom" @input="searchTextCustom=$event"></custom-input>
         <custom-input v-model="searchTextCustom"></custom-input>
-        <br />
-        <component :is="myComponent"></component>
-        <my-component></my-component>
-        <my-props-component
-            test-str="this is testStr"
-            :test-arr="[1, 2]"
-            test-arr-str="[1, 2]"
-        >
-        </my-props-component>
+        <hr>
+        <my-component :init-count="initCount" style="color: red"></my-component>
+        <hr>
+        <base-input v-model="baseInput"></base-input>
     </div>
 </body>
 <script>
@@ -112,7 +107,7 @@ isTop: false
                 <button v-on:click="changePost">
                     changePost
                 </button>
-                <br />
+                <hr>
                 -----------------------------
             </div>
         `
@@ -127,52 +122,67 @@ isTop: false
             'value'
         ],
         template: `
-            <div>
-                <input
-                    v-bind:value="value"
-                    v-on:input="$emit('input', $event.target.value)"
-                />
-            </div>
+            <input
+                v-bind:value="value"
+                v-on:input="$emit('input', $event.target.value)"
+            />
         `
     })
 
-    let MyComponent = {
-        data () {
+    let myComponent = {
+        data() {
             return {
-            }
-        },
-        props: [
-        ],
-        template: `
-            <div>my test component</div>
-        `
-    }
-    
-    let MyPropsComponent = {
-        data () {
-            return {
+                countAdd: this.initCount + 1
             }
         },
         props: {
-            testStr: String,
-            testArr: Array,
-            testArrStr: String
+            initCount: Number
         },
         template: `
-            <div>
-                <div>testStr: {{ testStr }}</div>
-                <div>testArr: {{ testArr[0] }}</div>
-                <div>testArrStr: {{ typeof testArrStr }}</div>
+            <div class="my-component">
+                my test component
+                <br>
+                {{ countAdd }}
             </div>
         `
     }
 
-    
+    let baseInput = {
+        inheritAttrs: false,
+        props: ['label', 'value'],
+        computed: {
+            inputListeners: function () {
+                var vm = this
+                return Object.assign({},
+                    this.$listeners,
+                    {
+                        input: function (event) {
+                            vm.$emit('input', event.target.value)
+                        },
+                        focus: function () {
+                            console.log('Focus!')
+                        }
+                    }
+                )
+            }
+        },
+        template: `
+            <label>
+            {{ label }}
+            <input
+                v-bind="$attrs"
+                v-bind:value="value"
+                v-on="inputListeners"
+            >
+            </label>
+        `
+    }
+
     const app = new Vue({
         el: '#app',
         components: {
-            MyComponent,
-            MyPropsComponent
+            myComponent,
+            baseInput
         },
         data: {
             message: 'Hello Vue!',
@@ -196,7 +206,8 @@ isTop: false
             searchText: 'hello mars',
             searchTextSelf: 'hello mars',
             searchTextCustom: 'hello mars',
-            myComponent: 'my-component'
+            initCount: 1,
+            baseInput: 'This is base input'
         },
         computed: {
             reversedMessageComputed() {

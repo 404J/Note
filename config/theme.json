@@ -23,7 +23,7 @@
     "dribbble": "",
     "facebook": "",
     "fontFamily": "Inter",
-    "ga": "",
+    "ga": "UA-167491324-1",
     "github": "https://github.com/404J",
     "hightlightTheme": "vsc-dark-plus",
     "homeBtnLink": "mailto:J1491361626@gmail.com",
@@ -32,10 +32,14 @@
     "katexRender": false,
     "links": [
       {
-        "description": "一个静态博客写作客户端",
+        "description": "📓一个静态博客写作客户端",
         "siteLink": "https://gridea.dev",
-        "siteLogo": "",
         "siteName": "Gridea 官网"
+      },
+      {
+        "siteName": "Stackoverflow",
+        "siteLink": "https://stackoverflow.com/",
+        "description": "🧐 For developers, by developers"
       }
     ],
     "mail": "mailto:J1491361626@gmail.com",
@@ -53,13 +57,13 @@
     "valineAppId": "xnJxPO3H5RoCqkdiVs66cRmp-gzGzoHsz",
     "valineAppKey": "oxSleKW908ctyQjiapuiwzLJ",
     "valineAvatar": "mp",
-    "valineHighlight": false,
+    "valineHighlight": true,
     "valineNotify": false,
     "valinePageSize": 10,
     "valinePlaceholder": "来都来了，不妨评论一下",
     "valineRecordIp": false,
     "valineVerify": true,
-    "valineVisitor": false,
+    "valineVisitor": true,
     "wechat": "\\media\\images\\custom-wechat.png",
     "weibo": "",
     "zhihu": ""

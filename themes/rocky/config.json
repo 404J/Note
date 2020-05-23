@@ -342,14 +342,17 @@
         {
             "siteName": "Gridea 官网",
             "siteLink": "https://gridea.dev",
-            "siteLogo": "",
-            "description": "一个静态博客写作客户端"
+            "description": "📓一个静态博客写作客户端"
+        },
+        {
+          "siteName": "Stackoverflow",
+          "siteLink": "https://stackoverflow.com/",
+          "description": "🧐 For developers, by developers"
         }
       ],
       "arrayItems": [
           { "label": "名称", "name": "siteName", "type": "input", "value": "" },
           { "label": "链接", "name": "siteLink", "type": "input", "value": "" },
-          { "label": "Logo", "name": "siteLogo", "type": "picture-upload", "value": "" },
           { "label": "描述", "name": "description", "type": "textarea", "value": "" }
       ],
       "note": ""

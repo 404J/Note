@@ -41,7 +41,12 @@
           <img src="<%= post.feature %>" alt="<%= post.title %>" class="block w-full mb-8">
         <% } %>
         <div class="mb-8 flex flex-wrap">
-          <div class="text-gray-400 text-sm mr-4"><%= post.dateFormat %> · <%= post.stats.text %></div>
+          <div class="text-gray-400 text-sm mr-4">
+            📅<%= post.dateFormat %>&nbsp;&nbsp;&nbsp;⏱<%= post.stats.text %>&nbsp;&nbsp;&nbsp;
+            <span id="<%= post.link %>" class="leancloud_visitors" data-flag-title="<%= post.link %>">
+              👁️‍🗨️<span class="leancloud-visitors-count"></span> visitors
+            </span>
+          </div>
           <% post.tags.forEach(function(tag) { %>
             <a href="<%= tag.link %>" class="text-gray-700 text-sm border-b-2 border-dotted border-gray-200 hover:border-gray-600 transition-all duration-100 inline-flex mr-2">
               <i class="ri-hashtag"></i>

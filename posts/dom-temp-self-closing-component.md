@@ -42,7 +42,7 @@ isTop: false
 在这不足 ~~20~~30行的 `Vue` demo中，定义了一个 `MyComponent` 的自定义组件，然后在 `Vue` 实例挂载的节点 `#app` 中使用了该组件。紧接着在这个组件标签的后面，写了这么一段话 **Can u see me ?**，但是在浏览器中并没有显示。。。
 ![](http://404j.fun/post-images/1589957417336.png)
 F12 检查下：
-![](http://404j.fun/post-images/1589955661234.png)
+![](http://404j.fun/post-images/1590201691133.png)
 可以看到，**Can u see me ?** 并没有被渲染。WF?
 
 然后到 `Vue` 官网search下，这么说的：

@@ -44,7 +44,7 @@
     "prevPage": "Previous",
     "qq": "",
     "readMore": "Read more",
-    "showDetailFeatureImage": true,
+    "showDetailFeatureImage": false,
     "showHomeBtn": true,
     "showSocial": true,
     "socialText": "Find me 👉",

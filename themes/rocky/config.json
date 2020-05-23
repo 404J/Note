@@ -335,8 +335,8 @@
     },
     {
       "name": "links",
-      "label": "连接收藏",
-      "group": "连接收藏",
+      "label": "链接收藏",
+      "group": "链接收藏",
       "type": "array",
       "value": [
         {

@@ -73,6 +73,7 @@ zip <dest.zip> <source> # 压缩成*.zip文件
 - 解压
 ```shell
 tar -xvf <dest.tar> # 展开*.tar包, x --> 解压
+ls *.tar.gz | xargs -n1 tar -xzvf # 批量解压
 tar -xzvf <dest.tar.gz> # 解压*.tar.gz文件
 tar -xjvf <dest.tar.bz2> # 解压*.tar.bz2文件
 unzip <dest.zip> # 解压*.zip文件

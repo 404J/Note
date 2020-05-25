@@ -77,6 +77,16 @@ isTop: false
         <my-component :init-count="initCount" style="color: red"></my-component>
         <hr>
         <base-input v-model="baseInput"></base-input>
+        <hr>
+        <sycn-component :flag.sync="flag"></sycn-component>
+        <div>flag in father: {{ flag }}</div>
+        <hr>
+        <slot-component>{{ url }}</slot-component>
+        <hr>
+        <slot-name-component>
+            <template v-slot:one>this is slot one</template>
+            <template v-slot:two>this is slot two</template>
+        </slot-name-component>
     </div>
 </body>
 <script>
@@ -114,10 +124,6 @@ isTop: false
     })
 
     Vue.component('custom-input', {
-        data: function () {
-            return {
-            }
-        },
         props: [
             'value'
         ],
@@ -178,11 +184,53 @@ isTop: false
         `
     }
 
+    let sycnComponent = {
+        props: [ 'flag' ],
+        methods: {
+            changeFlag () {
+                this.$emit('update:flag', !this.flag)
+            }
+        },
+        template: `
+            <div>
+                <div>flag in child: {{ flag }}</div>
+                <button @click.stop="changeFlag">关闭</button>
+            </div>
+        `
+    }
+
+    let slotComponent = {
+        data () {
+            return {
+                url: 'this is url in component'
+            }
+        },
+        template: `
+            <div>
+                <div>{{ url }}</div>
+                <slot></slot>
+            </div>
+        `
+    }
+    
+    let slotNameComponent = {
+        template:`
+            <div>
+                <div>slot one:</div>
+                <slot name="one"></slot>
+                <div>slot two:</div>
+                <slot name="two"></slot>
+            </div>
+        `
+    }
     const app = new Vue({
         el: '#app',
         components: {
             myComponent,
-            baseInput
+            baseInput,
+            sycnComponent,
+            slotComponent,
+            slotNameComponent
         },
         data: {
             message: 'Hello Vue!',
@@ -207,7 +255,9 @@ isTop: false
             searchTextSelf: 'hello mars',
             searchTextCustom: 'hello mars',
             initCount: 1,
-            baseInput: 'This is base input'
+            baseInput: 'This is base input',
+            flag: true,
+            url: 'this is url in father'
         },
         computed: {
             reversedMessageComputed() {

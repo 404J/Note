@@ -84,9 +84,16 @@ isTop: false
         <slot-component>{{ url }}</slot-component>
         <hr>
         <slot-name-component>
-            <template v-slot:one>this is slot one</template>
+            <template #one>this is slot one</template>
             <template v-slot:two>this is slot two</template>
         </slot-name-component>
+        <hr>
+        <button @click="switchComponent">Switch</button>
+        <keep-alive>
+            <component v-bind:is="currentKeepAliveComponent"></component>
+        </keep-alive>
+        <hr>
+        <child-component></child-component>
     </div>
 </body>
 <script>
@@ -223,6 +230,58 @@ isTop: false
             </div>
         `
     }
+    
+    let keepAliveComponentOne = {
+        data () {
+            return {
+                count: 0
+            }
+        },
+        methods: {
+            increaseCount () {
+                this.count ++
+            }
+        },
+        template: `
+            <div>
+                <button @click="increaseCount">add</button>
+                <div>{{ count }}</div>
+                <div>this is keepAliveComponentOne</div>
+            </div>
+        `
+    }
+
+    let keepAliveComponentTwo = {
+        template: `
+            <div>this is keepAliveComponentTwo</div>
+        `
+    }
+
+    let childComponent = {
+        data () {
+            return {
+                dataInRoot: '',
+                dataInParent: ''
+            }
+        },
+        methods: {
+            getRootData () {
+                this.dataInRoot = this.$root.dataInRoot
+            },
+            getParentData () {
+                this.dataInParent = this.$parent.dataInParent
+            }
+        },
+        template: `
+            <div>
+                <button @click="getRootData">Get data from root</button>
+                {{ dataInRoot }}
+                <button @click="getParentData">Get data from root</button>
+                {{ dataInParent }}
+            </div>
+        `
+    }
+
     const app = new Vue({
         el: '#app',
         components: {
@@ -230,7 +289,10 @@ isTop: false
             baseInput,
             sycnComponent,
             slotComponent,
-            slotNameComponent
+            slotNameComponent,
+            keepAliveComponentOne,
+            keepAliveComponentTwo,
+            childComponent
         },
         data: {
             message: 'Hello Vue!',
@@ -257,7 +319,11 @@ isTop: false
             initCount: 1,
             baseInput: 'This is base input',
             flag: true,
-            url: 'this is url in father'
+            url: 'this is url in father',
+            keepAliveComponentNames: ['keep-alive-component-one', 'keep-alive-component-two'],
+            currentKeepAliveComponent: 'keep-alive-component-one',
+            dataInParent: 'this is data in parent',
+            dataInRoot: 'this is data in root'
         },
         computed: {
             reversedMessageComputed() {
@@ -286,6 +352,13 @@ isTop: false
             enlargeText(enlargeAmount, test) {
                 console.log(test)
                 this.postFontSize += enlargeAmount
+            },
+            switchComponent() {
+                if (this.currentKeepAliveComponent === 'keep-alive-component-one') {
+                    this.currentKeepAliveComponent = 'keep-alive-component-two'
+                } else {
+                    this.currentKeepAliveComponent = 'keep-alive-component-one'
+                }
             }
         },
         watch: {
